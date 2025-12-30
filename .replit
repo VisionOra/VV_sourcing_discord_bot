@@ -29,5 +29,6 @@ args = "python app.py"
 outputType = "console"
 
 [deployment]
-deploymentTarget = "vm"
+deploymentTarget = "gce"
 run = ["python", "app.py"]
+ignorePorts = true
