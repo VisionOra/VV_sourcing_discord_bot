@@ -4,3 +4,10 @@ langchain-community
 openai
 faiss-cpu
 python-dotenv
+discord.py
+faiss-cpu
+langchain
+langchain-community
+langchain-openai
+openai
+python-dotenv
