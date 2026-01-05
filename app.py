@@ -23,16 +23,14 @@ client = OpenAI(api_key=OPENAI_API_KEY)
 # ============================
 MEMORY_FILE = "user_memory.csv"
 HISTORY_LIMIT = 10
-MODEL_NAME = "gpt-4o-mini"  # widely available
+MODEL_NAME = "gpt-4o-mini"
 REPLY_ONLY_WHEN_MENTIONED_IN_SERVER = True
 DEBUG_LOGS = True
 
-# Add this line to replies when relevant (and safe)
 GRIFFIN_LINE = "If you want, Griffin in Discord can share more info."
 
-# Discord message length limit
 DISCORD_CHAR_LIMIT = 2000
-SAFE_SEND_LIMIT = 1900  # leave buffer for code fences / extra newlines
+SAFE_SEND_LIMIT = 1900
 
 # ============================
 # AMAZON FBA KEYWORD GATE
@@ -52,11 +50,9 @@ FBA_KEYWORDS = [
 def is_amazon_fba_question(text: str) -> bool:
     t = (text or "").lower().strip()
 
-    # strong Amazon signals
     if "amazon" in t and ("fba" in t or "seller central" in t):
         return True
 
-    # treat Brand Direct / wholesale language as in-scope even if "amazon" not typed
     brand_direct_signals = [
         "brand direct", "direct brand", "wholesale", "authorized reseller",
         "commercial invoice", "brand authorization", "manufacturer",
@@ -70,7 +66,7 @@ def is_amazon_fba_question(text: str) -> bool:
 
 
 # ============================
-# CSV MEMORY (NO DATABASE)
+# CSV MEMORY
 # ============================
 def init_memory_csv():
     if not os.path.exists(MEMORY_FILE):
@@ -111,14 +107,12 @@ def forget_user_history(user_id: str):
 
 
 # ============================
-# SAFE DISCORD SENDING (SPLITS > 2000)
+# SAFE DISCORD SENDING
 # ============================
 def _split_text_safely(text: str, limit: int = SAFE_SEND_LIMIT):
     if not text:
         return []
-
     text = text.replace("\r\n", "\n")
-
     if len(text) <= limit:
         return [text]
 
@@ -130,10 +124,8 @@ def _split_text_safely(text: str, limit: int = SAFE_SEND_LIMIT):
             chunks.append(buf)
         buf = ""
 
-    paragraphs = text.split("\n\n")
-    for p in paragraphs:
+    for p in text.split("\n\n"):
         candidate = p if not buf else buf + "\n\n" + p
-
         if len(candidate) <= limit:
             buf = candidate
             continue
@@ -145,10 +137,9 @@ def _split_text_safely(text: str, limit: int = SAFE_SEND_LIMIT):
             buf = p
             continue
 
-        # Paragraph too big: split by lines
-        lines = p.split("\n")
+        # split by lines
         line_buf = ""
-        for line in lines:
+        for line in p.split("\n"):
             line_candidate = line if not line_buf else line_buf + "\n" + line
             if len(line_candidate) <= limit:
                 line_buf = line_candidate
@@ -160,14 +151,13 @@ def _split_text_safely(text: str, limit: int = SAFE_SEND_LIMIT):
                     for i in range(0, len(line), limit):
                         chunks.append(line[i:i + limit])
                     line_buf = ""
-
         if line_buf:
             chunks.append(line_buf)
 
     if buf:
         flush()
 
-    # Best-effort code fence fix
+    # close unbalanced code fences
     open_fence = False
     for i, c in enumerate(chunks):
         if c.count("```") % 2 == 1:
@@ -180,108 +170,105 @@ def _split_text_safely(text: str, limit: int = SAFE_SEND_LIMIT):
 
 
 async def send_long(channel: discord.abc.Messageable, text: str):
-    parts = _split_text_safely(text, SAFE_SEND_LIMIT)
-    for part in parts:
+    for part in _split_text_safely(text, SAFE_SEND_LIMIT):
         if len(part) > DISCORD_CHAR_LIMIT:
             part = part[:DISCORD_CHAR_LIMIT]
         await channel.send(part)
 
 
 # ============================
-# ENFORCE GRIFFIN LINE ONLY ONCE (AT END)
+# OUTPUT CLEANUP (STOPS "TWO ANSWERS")
 # ============================
-def ensure_single_griffin_line(reply: str) -> str:
+def _strip_griffin_mentions(text: str) -> str:
+    """Remove any model-included Griffin mentions so we can add it once at the end."""
+    if not text:
+        return text
+    lines = []
+    for line in text.splitlines():
+        if "griffin" in line.lower():
+            # remove any line that mentions Griffin
+            continue
+        lines.append(line)
+    return "\n".join(lines).strip()
+
+
+def _keep_single_structured_answer(text: str) -> str:
+    """
+    If the model outputs two answers, usually it repeats a framework.
+    We keep only ONE by extracting from the LAST 'Direct Answer' heading,
+    if present. This reliably drops the earlier duplicate.
+    """
+    if not text:
+        return text
+
+    marker = "Direct Answer"
+    idx = text.rfind(marker)
+    if idx != -1:
+        # If there are multiple occurrences, take from the last one
+        return text[idx:].strip()
+
+    # If no marker, return as-is
+    return text.strip()
+
+
+def finalize_reply(reply: str) -> str:
+    """
+    1) Enforce single answer (remove duplicates)
+    2) Remove Griffin mentions from model
+    3) Append Griffin line exactly once at end (if in-scope)
+    """
     if not reply:
+        return "I can only help with Amazon FBA questions."
+
+    reply = reply.strip()
+
+    if reply == "I can only help with Amazon FBA questions.":
         return reply
 
-    if reply.strip() == "I can only help with Amazon FBA questions.":
-        return reply.strip()
+    # 1) Remove "two answers" pattern
+    reply = _keep_single_structured_answer(reply)
 
-    # Remove any existing Griffin line occurrences
-    cleaned_lines = []
-    for line in reply.splitlines():
-        if line.strip() == GRIFFIN_LINE.strip():
-            continue
-        cleaned_lines.append(line)
+    # 2) Remove any Griffin mentions inside the body
+    reply = _strip_griffin_mentions(reply)
 
-    cleaned = "\n".join(cleaned_lines).strip()
-
-    # Append once at end
-    return cleaned.rstrip() + "\n\n" + GRIFFIN_LINE
+    # 3) Append exactly once at end
+    reply = reply.rstrip() + "\n\n" + GRIFFIN_LINE
+    return reply
 
 
 # ============================
-# VV SOURCING SYSTEM PROMPT
-# (IMPORTANT: no instruction telling the model to write the Griffin line)
+# VV SYSTEM PROMPT (STRICT ONE ANSWER)
 # ============================
 VV_SYSTEM_PROMPT = """
 You are a private Discord AI assistant for VV Sourcing.
 
-You answer questions the way an experienced Amazon FBA Brand Direct consultant would — clear, strategic, and educational. Your responses should resemble ChatGPT-style explanations: layered, contextual, and insightful, not short or surface-level.
+You answer questions like an experienced Amazon FBA Brand Direct wholesale operator: clear, strategic, and educational. Your answers should feel ChatGPT-like (insightful and complete), but must remain within Amazon FBA + Brand Direct wholesale operations only.
 
-You are NOT a casual chatbot. You are an operator-level assistant focused on long-term, compliant Amazon wholesale success.
+CRITICAL OUTPUT CONTROL:
+- Produce EXACTLY ONE answer.
+- Do NOT write a second version, do NOT “expand again,” do NOT re-answer.
+- Start your response with the heading: "Direct Answer"
+- Use the headings below exactly once each.
+- Never mention Griffin (the app adds that line automatically).
 
-=================================================
-ANSWER STYLE (MAKE IT "MORE INFO" LIKE CHATGPT)
-=================================================
-For every in-scope question, follow this structure:
+REQUIRED HEADINGS (USE ONCE):
+Direct Answer
+Why It Works
+What Brands Look For
+Common Mistakes
+Next Steps
+Mini-checklist (optional; only if it adds new info; max 5 lines)
 
-1) Direct Answer (1–2 sentences)
-2) Why It Works (explain reasoning and business logic)
-3) What Brands/Amazon Look For (real-world criteria and signals)
-4) Common Mistakes / Misconceptions (brief)
-5) Practical Next Steps (2–5 actionable steps)
-6) If helpful: a short example, checklist, or mini-framework
+DEPTH RULES:
+- Cover at least 3 angles (ops + compliance + scaling).
+- Use concrete examples when helpful (MAP, invoices, reorders, in-stock rate).
+- Ask at most 2 clarifying questions, and ONLY at the very end if truly needed.
 
-Depth rules:
-- Cover at least 3 meaningful angles per answer (ops + compliance + scaling).
-- Use concrete examples (MAP, invoices, reorders, seller behavior, in-stock rate, etc.) when relevant.
-- If the question is broad, ask at most 2 clarifying questions AFTER giving a strong default answer.
-- Do not ramble. Be dense with insight.
+SCOPE:
+Allowed: Amazon FBA, Brand Direct wholesale sourcing, compliance, brand approvals, invoices/authorization, supply chain.
+Not allowed: retail arbitrage, online arbitrage, dropshipping, Shopify/DTC tactics, paid ads/funnels, invoice fabrication.
 
-=================================================
-BRAND DIRECT (CORE MODEL)
-=================================================
-Amazon Brand Direct is a wholesale distribution model, not a tactic.
-
-Definition:
-- Source inventory directly from brands or manufacturers
-- Sell that inventory on Amazon using Amazon FBA
-- NOT retail/online arbitrage, NOT dropshipping, NOT invoice fabrication
-
-Required standards:
-- Legit wholesale pricing
-- Real commercial invoices
-- Brand authorization to sell
-- Clean supply chain documentation
-- Inventory flows brand → Amazon FBA → customer
-- Scale through repeat POs and reorders
-
-=================================================
-PRODUCT RESEARCH SOPs
-=================================================
-A product is viable ONLY if it meets these rules:
-- More than 3 FBA sellers
-- At least 2 new FBA sellers in past 6 months
-- 100+ units/month (seasonal can use last year)
-- 2–3 listings total invoice value > $3k–$4k, or 1 listing > $4k
-- No IP complaint history
-- Weight limits: under $100 max 5 lbs; over $100 max 7 lbs
-- New seller should have 30+ units in stock
-- Do not proceed if the brand is selling on Amazon
-
-=================================================
-IN/OUT OF SCOPE
-=================================================
-You MAY answer:
-- Amazon FBA operations, Brand Direct, wholesale sourcing, compliance, brand approval logic
-
-You MAY NOT answer:
-- Retail arbitrage, online arbitrage, dropshipping, Shopify/DTC tactics, paid ads/funnels, invoice fabrication
-
-=================================================
-OUT-OF-SCOPE HANDLING
-=================================================
+OUT-OF-SCOPE HANDLING:
 If truly outside Amazon FBA or Brand Direct, reply EXACTLY:
 "I can only help with Amazon FBA questions."
 """
@@ -292,7 +279,7 @@ def generate_fba_reply(history: str, message: str) -> str:
 
     response = client.responses.create(
         model=MODEL_NAME,
-        max_output_tokens=900,
+        max_output_tokens=850,
         input=[
             {
                 "role": "system",
@@ -308,11 +295,7 @@ def generate_fba_reply(history: str, message: str) -> str:
     out = getattr(response, "output_text", "")
     reply = (out or "").strip()
 
-    if not reply:
-        return "I can only help with Amazon FBA questions."
-
-    # Ensure Griffin line appears exactly once at end (and nowhere else)
-    return ensure_single_griffin_line(reply)
+    return finalize_reply(reply)
 
 
 # ============================
@@ -355,7 +338,6 @@ async def on_message(message: discord.Message):
             f"[DEBUG] is_dm={is_dm} author={message.author} content={message.content!r}"
         )
 
-    # Server: reply only if mentioned
     if not is_dm and REPLY_ONLY_WHEN_MENTIONED_IN_SERVER:
         if bot.user not in message.mentions:
             return
@@ -372,7 +354,6 @@ async def on_message(message: discord.Message):
     user_id = str(message.author.id)
     history = load_user_history(user_id, HISTORY_LIMIT)
 
-    # FBA-only gate (history-aware follow-ups)
     if not is_amazon_fba_question(text):
         combined = (history + "\nUser: " + text).lower()
         if not is_amazon_fba_question(combined):
@@ -382,7 +363,6 @@ async def on_message(message: discord.Message):
 
     save_turn(user_id, "user", text)
 
-    # Generate response with error handling
     try:
         reply = generate_fba_reply(history, text)
     except Exception as e:
@@ -405,8 +385,6 @@ async def on_message(message: discord.Message):
         return
 
     save_turn(user_id, "assistant", reply)
-
-    # Send safely (prevents 2000 char error)
     await send_long(message.channel, reply)
 
 
