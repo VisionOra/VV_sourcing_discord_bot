@@ -30,6 +30,10 @@ DEBUG_LOGS = True
 # Add this line to replies when relevant (and safe)
 GRIFFIN_LINE = "If you want, Griffin in Discord can share more info."
 
+# Discord message length limit
+DISCORD_CHAR_LIMIT = 2000
+SAFE_SEND_LIMIT = 1900  # leave buffer for code fences / extra newlines
+
 # ============================
 # AMAZON FBA KEYWORD GATE
 # (expanded to include Brand Direct/Wholesale questions)
@@ -47,7 +51,7 @@ FBA_KEYWORDS = [
 
 
 def is_amazon_fba_question(text: str) -> bool:
-    t = text.lower().strip()
+    t = (text or "").lower().strip()
 
     # strong Amazon signals
     if "amazon" in t and ("fba" in t or "seller central" in t):
@@ -107,8 +111,114 @@ def forget_user_history(user_id: str):
 
 
 # ============================
+# SAFE DISCORD SENDING (SPLITS > 2000)
+# - Preserves paragraph breaks
+# - Avoids breaking code fences when possible
+# ============================
+def _split_text_safely(text: str, limit: int = SAFE_SEND_LIMIT):
+    """
+    Splits text into Discord-safe chunks.
+    Tries: paragraph split -> line split -> hard split.
+    Also tries to avoid breaking ``` code fences by carrying fence state.
+    """
+    if not text:
+        return []
+
+    text = text.replace("\r\n", "\n")
+
+    # If short enough, no split
+    if len(text) <= limit:
+        return [text]
+
+    chunks = []
+    buf = ""
+    in_code = False
+
+    def flush():
+        nonlocal buf
+        if buf.strip():
+            chunks.append(buf)
+        buf = ""
+
+    paragraphs = text.split("\n\n")
+    for p in paragraphs:
+        # Track code fence state roughly (count occurrences of ``` within paragraph)
+        fence_count = p.count("```")
+        # Build candidate with paragraph gap
+        candidate = p if not buf else buf + "\n\n" + p
+
+        if len(candidate) <= limit:
+            buf = candidate
+            # toggle if odd number of fences
+            if fence_count % 2 == 1:
+                in_code = not in_code
+            continue
+
+        # If candidate too large, flush current buffer first
+        if buf:
+            flush()
+
+        # Now handle paragraph itself
+        if len(p) <= limit:
+            buf = p
+            if fence_count % 2 == 1:
+                in_code = not in_code
+            continue
+
+        # Paragraph too big: split by lines
+        lines = p.split("\n")
+        line_buf = ""
+        for line in lines:
+            line_candidate = line if not line_buf else line_buf + "\n" + line
+            if len(line_candidate) <= limit:
+                line_buf = line_candidate
+            else:
+                if line_buf:
+                    chunks.append(line_buf)
+                    line_buf = line
+                else:
+                    # Single line too long: hard split
+                    for i in range(0, len(line), limit):
+                        chunks.append(line[i:i + limit])
+                    line_buf = ""
+
+        if line_buf:
+            chunks.append(line_buf)
+
+        # Update code state after handling paragraph
+        if fence_count % 2 == 1:
+            in_code = not in_code
+
+    if buf:
+        flush()
+
+    # If we ended inside a code block, close/open fences to avoid broken markdown
+    # (best effort; Discord is forgiving but this helps readability)
+    fixed = []
+    open_fence = False
+    for c in chunks:
+        if c.count("```") % 2 == 1:
+            open_fence = not open_fence
+        fixed.append(c)
+
+    # If code fence is left open at the end, append closing fence
+    if open_fence:
+        fixed[-1] = fixed[-1] + "\n```"
+
+    return fixed
+
+
+async def send_long(channel: discord.abc.Messageable, text: str):
+    parts = _split_text_safely(text, SAFE_SEND_LIMIT)
+    for part in parts:
+        # Discord hard cap
+        if len(part) > DISCORD_CHAR_LIMIT:
+            part = part[:DISCORD_CHAR_LIMIT]
+        await channel.send(part)
+
+
+# ============================
 # VV SOURCING SYSTEM PROMPT
-# (includes Brand Direct definition + SOPs + Griffin line instruction)
 # ============================
 VV_SYSTEM_PROMPT = f"""
 You are a private Discord AI assistant for VV Sourcing.
@@ -287,6 +397,7 @@ If a question is truly outside Amazon FBA or Brand Direct, reply EXACTLY with:
 
 def generate_fba_reply(history: str, message: str) -> str:
     user_input = f"Conversation history:\n{history}\n\nUser question:\n{message}"
+
     response = client.responses.create(
         model=MODEL_NAME,
         input=[
@@ -300,11 +411,11 @@ def generate_fba_reply(history: str, message: str) -> str:
             },
         ],
     )
+
     out = getattr(response, "output_text", "")
     reply = (out or "").strip()
 
-    # Guarantee the Griffin line is appended to FBA-scope answers
-    # (and avoid appending it to the out-of-scope hard block)
+    # Guarantee the Griffin line is appended to in-scope answers
     if reply and reply != "I can only help with Amazon FBA questions.":
         if GRIFFIN_LINE not in reply:
             reply = reply.rstrip() + "\n\n" + GRIFFIN_LINE
@@ -345,7 +456,6 @@ async def on_message(message: discord.Message):
 
     await bot.process_commands(message)
 
-    # Reliable DM detection
     is_dm = (message.guild is None)
 
     if DEBUG_LOGS:
@@ -358,12 +468,13 @@ async def on_message(message: discord.Message):
         if bot.user not in message.mentions:
             return
 
-    text = message.content.strip()
+    text = (message.content or "").strip()
     if not is_dm:
         text = strip_mention(text, bot.user.id)
 
     if not text:
-        await message.channel.send("Mention me with your Amazon FBA question.")
+        await send_long(message.channel,
+                        "Mention me with your Amazon FBA question.")
         return
 
     user_id = str(message.author.id)
@@ -373,8 +484,8 @@ async def on_message(message: discord.Message):
     if not is_amazon_fba_question(text):
         combined = (history + "\nUser: " + text).lower()
         if not is_amazon_fba_question(combined):
-            await message.channel.send(
-                "I can only help with Amazon FBA questions.")
+            await send_long(message.channel,
+                            "I can only help with Amazon FBA questions.")
             return
 
     save_turn(user_id, "user", text)
@@ -385,20 +496,26 @@ async def on_message(message: discord.Message):
     except Exception as e:
         err = str(e)
         print("[ERROR] OpenAI call failed:", err)
+
         if "insufficient_quota" in err or "Error code: 429" in err:
-            await message.channel.send(
+            await send_long(
+                message.channel,
                 "⚠️ OpenAI quota/billing issue (insufficient quota). Check your OpenAI billing."
             )
         elif "model" in err and ("not found" in err
                                  or "does not exist" in err):
-            await message.channel.send(
+            await send_long(
+                message.channel,
                 "⚠️ Model not available. Use MODEL_NAME='gpt-4o-mini'.")
         else:
-            await message.channel.send(f"⚠️ Error generating reply: {err}")
+            await send_long(message.channel,
+                            f"⚠️ Error generating reply: {err}")
         return
 
     save_turn(user_id, "assistant", reply)
-    await message.channel.send(reply)
+
+    # ✅ FIX: send long replies safely (prevents 2000 char error)
+    await send_long(message.channel, reply)
 
 
 if __name__ == "__main__":
