@@ -180,76 +180,54 @@ async def send_long(channel: discord.abc.Messageable, text: str):
 # OUTPUT CLEANUP (STOPS "TWO ANSWERS")
 # ============================
 def _strip_griffin_mentions(text: str) -> str:
-    """Remove any model-included Griffin mentions so we can add it once at the end."""
     if not text:
         return text
     lines = []
     for line in text.splitlines():
         if "griffin" in line.lower():
-            # remove any line that mentions Griffin
             continue
         lines.append(line)
     return "\n".join(lines).strip()
 
 
 def _keep_single_structured_answer(text: str) -> str:
-    """
-    If the model outputs two answers, usually it repeats a framework.
-    We keep only ONE by extracting from the LAST 'Direct Answer' heading,
-    if present. This reliably drops the earlier duplicate.
-    """
     if not text:
         return text
-
-    marker = "Direct Answer"
-    idx = text.rfind(marker)
+    idx = text.rfind("Direct Answer")
     if idx != -1:
-        # If there are multiple occurrences, take from the last one
         return text[idx:].strip()
-
-    # If no marker, return as-is
     return text.strip()
 
 
 def finalize_reply(reply: str) -> str:
-    """
-    1) Enforce single answer (remove duplicates)
-    2) Remove Griffin mentions from model
-    3) Append Griffin line exactly once at end (if in-scope)
-    """
     if not reply:
         return "I can only help with Amazon FBA questions."
 
     reply = reply.strip()
-
     if reply == "I can only help with Amazon FBA questions.":
         return reply
 
-    # 1) Remove "two answers" pattern
     reply = _keep_single_structured_answer(reply)
-
-    # 2) Remove any Griffin mentions inside the body
     reply = _strip_griffin_mentions(reply)
-
-    # 3) Append exactly once at end
     reply = reply.rstrip() + "\n\n" + GRIFFIN_LINE
     return reply
 
 
 # ============================
-# VV SYSTEM PROMPT (STRICT ONE ANSWER)
+# VV SYSTEM PROMPT (MORE DETAIL, STILL ONE ANSWER)
 # ============================
 VV_SYSTEM_PROMPT = """
 You are a private Discord AI assistant for VV Sourcing.
 
-You answer questions like an experienced Amazon FBA Brand Direct wholesale operator: clear, strategic, and educational. Your answers should feel ChatGPT-like (insightful and complete), but must remain within Amazon FBA + Brand Direct wholesale operations only.
+You answer questions like an experienced Amazon FBA Brand Direct wholesale operator: clear, strategic, and educational. Your answers should feel ChatGPT-like: detailed, nuanced, and practical — but must remain within Amazon FBA + Brand Direct wholesale operations only.
 
 CRITICAL OUTPUT CONTROL:
 - Produce EXACTLY ONE answer.
 - Do NOT write a second version, do NOT “expand again,” do NOT re-answer.
-- Start your response with the heading: "Direct Answer"
+- Start with the heading: "Direct Answer"
 - Use the headings below exactly once each.
 - Never mention Griffin (the app adds that line automatically).
+- Avoid repetition: each section must add NEW information.
 
 REQUIRED HEADINGS (USE ONCE):
 Direct Answer
@@ -257,12 +235,20 @@ Why It Works
 What Brands Look For
 Common Mistakes
 Next Steps
-Mini-checklist (optional; only if it adds new info; max 5 lines)
+Advanced Insight (optional; only if it adds NEW value)
+Mini-checklist (optional; max 5 lines)
+
+DETAIL REQUIREMENTS (DEFAULT = DETAILED):
+- Why It Works: 2–4 short paragraphs (no fluff).
+- What Brands Look For: 6–10 bullets with concrete signals (website elements, compliance signals, ops capability).
+- Common Mistakes: 3–6 bullets.
+- Next Steps: 4–6 bullets with actionable items.
+- Advanced Insight: include only if you can add a non-obvious insight (e.g., MAP, channel conflict, Amazon operational signals).
 
 DEPTH RULES:
 - Cover at least 3 angles (ops + compliance + scaling).
 - Use concrete examples when helpful (MAP, invoices, reorders, in-stock rate).
-- Ask at most 2 clarifying questions, and ONLY at the very end if truly needed.
+- Ask at most 2 clarifying questions, ONLY at the end if truly needed.
 
 SCOPE:
 Allowed: Amazon FBA, Brand Direct wholesale sourcing, compliance, brand approvals, invoices/authorization, supply chain.
@@ -279,7 +265,7 @@ def generate_fba_reply(history: str, message: str) -> str:
 
     response = client.responses.create(
         model=MODEL_NAME,
-        max_output_tokens=850,
+        max_output_tokens=1400,  # ✅ more room = more detail
         input=[
             {
                 "role": "system",
@@ -294,7 +280,6 @@ def generate_fba_reply(history: str, message: str) -> str:
 
     out = getattr(response, "output_text", "")
     reply = (out or "").strip()
-
     return finalize_reply(reply)
 
 
