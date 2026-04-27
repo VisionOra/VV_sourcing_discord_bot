@@ -1,5 +1,6 @@
 import os
 import csv
+import json
 import time
 import discord
 from discord.ext import commands
@@ -22,6 +23,7 @@ client = OpenAI(api_key=OPENAI_API_KEY)
 # SETTINGS
 # ============================
 MEMORY_FILE = "user_memory.csv"
+EMAIL_TEMPLATES_FILE = "email_templates.json"
 HISTORY_LIMIT = 10
 MODEL_NAME = "gpt-4o-mini"
 REPLY_ONLY_WHEN_MENTIONED_IN_SERVER = True
@@ -31,6 +33,37 @@ GRIFFIN_LINE = "If you want, Griffin in Discord can share more info."
 
 DISCORD_CHAR_LIMIT = 2000
 SAFE_SEND_LIMIT = 1900
+
+# ============================
+# EMAIL HELP MENU
+# ============================
+EMAIL_HELP_TEXT = """**GriffinBot — Email Assistant**
+
+I can write professional outreach emails for you. Just describe what you need naturally.
+
+**How to use:**
+> `@GriffinBot send a follow up email to Nike, no response in 2 weeks`
+> `@GriffinBot write a follow up to Adidas about our wholesale inquiry`
+> `@GriffinBot follow up with New Balance, they haven't replied`
+
+**Available templates:**
+> `follow_up_1` — Short polite nudge
+> `follow_up_2` — Follow up referencing wholesale terms and product availability
+> `follow_up_3` — Follow up with partnership pitch, request a call
+> `follow_up_4` — Casual follow up, asks for alternate contact
+> `follow_up_5` — Follow up on wholesale partnership, asks for next steps
+
+**Tip:** You don't need to type the template name — just describe the situation and I'll pick the right one.
+
+For FBA questions, just ask normally without mentioning email.
+"""
+
+EMAIL_INTENT_KEYWORDS = [
+    "email", "outreach", "reach out", "contact", "write to",
+    "send a message", "follow up", "follow-up", "followup",
+    "authorization", "introduce", "partnership email", "send an email",
+    "draft", "compose"
+]
 
 # ============================
 # AMAZON FBA KEYWORD GATE
@@ -234,10 +267,10 @@ Every answer must be:
 
 Use this structure by default:
 
-• Short intro paragraph framing the concept  
-• 5–7 numbered sections with clear titles  
-• Each section must introduce NEW insight  
-• A short “Rule of Thumb” or “Bottom Line” section
+• Short intro paragraph framing the concept
+• 5–7 numbered sections with clear titles
+• Each section must introduce NEW insight
+• A short "Rule of Thumb" or "Bottom Line" section
 
 Do NOT:
 - Repeat the same idea in different words
@@ -257,7 +290,7 @@ Assume the reader already understands Amazon basics.
 Your job is to explain *what experienced sellers see that beginners miss*.
 
 Think:
-“Here’s what this looks like in the real Amazon ecosystem.”
+"Here's what this looks like in the real Amazon ecosystem."
 
 ========================
 BRAND DIRECT CONTEXT (ALWAYS APPLY)
@@ -295,8 +328,8 @@ These details should feel *naturally woven in*, not bolted on.
 ========================
 EXAMPLE MINDSET (HOW TO THINK)
 ========================
-“If you only count sellers, you miss the point.
-What matters is *who those sellers are*, *how they source*, and *how the brand supports the channel*.”
+"If you only count sellers, you miss the point.
+What matters is *who those sellers are*, *how they source*, and *how the brand supports the channel*."
 
 ========================
 GRIFFIN RULE
@@ -317,24 +350,134 @@ If a question is truly outside Amazon FBA or Brand Direct, reply EXACTLY:
 def generate_fba_reply(history: str, message: str) -> str:
     user_input = f"Conversation history:\n{history}\n\nUser question:\n{message}"
 
-    response = client.responses.create(
+    response = client.chat.completions.create(
         model=MODEL_NAME,
-        max_output_tokens=1400,  # ✅ more room = more detail
-        input=[
-            {
-                "role": "system",
-                "content": VV_SYSTEM_PROMPT
-            },
-            {
-                "role": "user",
-                "content": user_input
-            },
+        messages=[
+            {"role": "system", "content": VV_SYSTEM_PROMPT},
+            {"role": "user", "content": user_input}
         ],
+        max_tokens=1400
     )
 
-    out = getattr(response, "output_text", "")
-    reply = (out or "").strip()
+    reply = (response.choices[0].message.content or "").strip()
     return finalize_reply(reply)
+
+
+# ============================
+# EMAIL AGENT — FUNCTION CALLING ROUTER
+# ============================
+def is_email_intent(text: str) -> bool:
+    t = text.lower()
+    return any(kw in t for kw in EMAIL_INTENT_KEYWORDS)
+
+
+def load_all_templates() -> list:
+    if not os.path.exists(EMAIL_TEMPLATES_FILE):
+        return []
+    with open(EMAIL_TEMPLATES_FILE, "r", encoding="utf-8") as f:
+        return json.load(f)
+
+
+def _build_tools(templates: list) -> list:
+    return [
+        {
+            "type": "function",
+            "function": {
+                "name": t["id"],
+                "description": t["description"],
+                "parameters": {"type": "object", "properties": {}, "required": []}
+            }
+        }
+        for t in templates
+    ]
+
+
+# Built once at module level after templates are loaded
+_TEMPLATES: list = []
+_TOOLS: list = []
+
+
+def _ensure_templates_loaded():
+    global _TEMPLATES, _TOOLS
+    if not _TEMPLATES:
+        _TEMPLATES = load_all_templates()
+        _TOOLS = _build_tools(_TEMPLATES)
+
+
+def _route_template(user_message: str) -> dict | None:
+    """Call 1 — GPT picks the right template via function calling."""
+    _ensure_templates_loaded()
+    if not _TOOLS:
+        return None
+
+    response = client.chat.completions.create(
+        model=MODEL_NAME,
+        messages=[
+            {"role": "system", "content": "You are an email routing assistant. Based on the user's request, call the function that best matches the email they need."},
+            {"role": "user", "content": user_message}
+        ],
+        tools=_TOOLS,
+        tool_choice="required",
+        max_tokens=50
+    )
+
+    tool_calls = response.choices[0].message.tool_calls
+    if not tool_calls:
+        return None
+
+    chosen_id = tool_calls[0].function.name
+    if DEBUG_LOGS:
+        print(f"[EMAIL ROUTER] GPT chose → {chosen_id}")
+
+    return next((t for t in _TEMPLATES if t["id"] == chosen_id), None)
+
+
+EMAIL_FILL_PROMPT = """You are an email writing assistant for VV Sourcing, a multichannel brand-direct reseller.
+
+You will receive:
+1. An email template with placeholders like [Brand], [Name], [RepName], [ProductName]
+2. The user's request describing the brand and situation
+
+Your job:
+- Fill in ALL placeholders using context from the user's request
+- If a brand name is mentioned, use it — otherwise leave the placeholder as-is
+- Keep the professional tone and structure of the template exactly
+- Output ONLY the finished email — no explanations, no extra text"""
+
+
+def _fill_template(template_body: str, user_message: str) -> str:
+    """Call 2 — GPT fills placeholders in the selected template."""
+    response = client.chat.completions.create(
+        model=MODEL_NAME,
+        messages=[
+            {"role": "system", "content": EMAIL_FILL_PROMPT},
+            {"role": "user", "content": f"Template:\n{template_body}\n\nUser request:\n{user_message}"}
+        ],
+        max_tokens=800
+    )
+    return response.choices[0].message.content.strip()
+
+
+def generate_email_reply(user_message: str) -> str:
+    _ensure_templates_loaded()
+    template = _route_template(user_message)
+
+    if not template:
+        names = ", ".join(f"`{t['id']}`" for t in _TEMPLATES)
+        return (
+            "I couldn't find a matching email template for that request.\n\n"
+            f"**Available templates:** {names}\n\n"
+            "Try describing what you need, e.g.\n"
+            "> _send a follow up to Nike, no response in 2 weeks_\n\n"
+            "Or type `email_help` to see all options."
+        )
+
+    template_body = template.get("template", "").strip()
+    matched_id = template.get("id", "unknown")
+    matched_name = template.get("name", "unknown")
+
+    email_body = _fill_template(template_body, user_message)
+    return f"**Template matched:** `{matched_id}` — {matched_name}\n\n{email_body}"
 
 
 # ============================
@@ -387,9 +530,26 @@ async def on_message(message: discord.Message):
 
     if not text:
         await send_long(message.channel,
-                        "Mention me with your Amazon FBA question.")
+                        "Mention me with your Amazon FBA question or type `email_help` to see email options.")
         return
 
+    # ── Email help menu ──────────────────────────────────────────
+    if text.lower().strip() in ("email_help", "email help", "emailhelp"):
+        await send_long(message.channel, EMAIL_HELP_TEXT)
+        return
+
+    # ── Email agent (RAG) ────────────────────────────────────────
+    if is_email_intent(text):
+        try:
+            reply = generate_email_reply(text)
+        except Exception as e:
+            err = str(e)
+            print("[ERROR] Email agent failed:", err)
+            reply = f"⚠️ Error generating email: {err}"
+        await send_long(message.channel, reply)
+        return
+
+    # ── FBA Q&A (existing behavior, untouched) ───────────────────
     user_id = str(message.author.id)
     history = load_user_history(user_id, HISTORY_LIMIT)
 
