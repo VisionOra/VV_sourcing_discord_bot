@@ -2,5 +2,4 @@ discord
 langchain
 langchain-community
 openai
-faiss-cpu
 python-dotenv

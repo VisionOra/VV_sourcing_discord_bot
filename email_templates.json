@@ -1,0 +1,178 @@
+[
+  {
+    "id": "follow_up_1",
+    "name": "Short Polite Nudge",
+    "tags": ["follow_up", "no_response", "generic", "short"],
+    "intents": [
+      "no reply received",
+      "gentle nudge",
+      "short follow up",
+      "polite reminder",
+      "haven't heard back",
+      "no response"
+    ],
+    "description": "Short generic follow up to a previous email, no response received, polite nudge, no name needed",
+    "template": "Hi,\n\nI hope this finds you well.\n\nThis is a follow up to my previous email, kindly respond at your earliest convenience.\n\nLooking forward to your response."
+  },
+  {
+    "id": "follow_up_2",
+    "name": "Wholesale Terms Check-In",
+    "tags": ["follow_up", "wholesale", "product_availability"],
+    "intents": [
+      "checking if they reviewed my email",
+      "follow up on wholesale terms",
+      "asking about product availability",
+      "wholesale inquiry follow up",
+      "want to know pricing"
+    ],
+    "description": "Follow up checking if they reviewed previous email, interested in wholesale terms and product availability, no name needed",
+    "template": "Hi,\n\nI hope you're well.\n\nI just wanted to follow up on my previous email and see if you've had a chance to review it. We are eager to learn more about your wholesale terms and product availability.\n\nKindly respond at your earliest convenience. Looking forward to your prompt response."
+  },
+  {
+    "id": "follow_up_3",
+    "name": "Partnership Pitch + Call Request",
+    "tags": ["follow_up", "partnership", "call_request", "distribution"],
+    "intents": [
+      "request a meeting",
+      "propose partnership",
+      "ask for a call",
+      "schedule a conversation",
+      "leverage distribution expertise",
+      "previous conversation follow up",
+      "mentions contact name"
+    ],
+    "description": "Follow up referencing previous conversation, mentions partnership alignment and distribution expertise, wants to schedule a call, requires contact name",
+    "template": "Hi [Name],\n\nI hope this message finds you well. I wanted to follow up on our previous conversation regarding a potential partnership with your brand.\n\nI believe there's a strong alignment between our businesses, and I'm confident we can bring significant value to your brand by leveraging our distribution expertise.\n\nTo move forward, I'd be happy to discuss the specifics of how we can support your brand's goals. Please let me know your availability, and we can arrange a time to discuss further.\n\nLooking forward to your response and hoping to explore the potential of working together."
+  },
+  {
+    "id": "follow_up_4",
+    "name": "Casual Follow Up + Alt Contact Ask",
+    "tags": ["follow_up", "casual", "alternate_contact", "wholesale"],
+    "intents": [
+      "still interested in wholesale",
+      "ask if there is someone else to contact",
+      "casual check in",
+      "who should I talk to",
+      "alternate contact",
+      "mentions brand name and contact name"
+    ],
+    "description": "Casual short follow up still interested in wholesale opportunities, asks if there is someone else to contact, requires brand name and contact name",
+    "template": "Hi [Name],\n\nJust following up on my previous message. We're still very interested in moving forward with [Brand] and would love to explore wholesale opportunities with your team.\n\nLet me know if now's a good time to connect or if there's someone else I should reach out to.\n\nLooking forward to your response!\n\nBest regards,"
+  },
+  {
+    "id": "follow_up_5",
+    "name": "Wholesale Partnership Next Steps",
+    "tags": ["follow_up", "partnership", "next_steps", "wholesale"],
+    "intents": [
+      "excited to bring brand to customers",
+      "ask for next steps",
+      "ask for alternate contact",
+      "wholesale partnership follow up",
+      "move forward with partnership",
+      "mentions brand name"
+    ],
+    "description": "Follow up on wholesale partnership, excited to bring brand to customers, asks for next steps or alternate contact, requires brand name",
+    "template": "Hi [Brand] Team,\n\nJust following up on my previous message regarding a potential wholesale partnership.\n\nWe're excited about the opportunity to bring [Brand] to our customers and would love to discuss how we can move forward. Please let me know if there's someone else I should speak with, or if you need additional details from our side.\n\nLooking forward to hearing from you.\n\nBest,"
+  },
+  {
+    "id": "initial_outreach_garden_1",
+    "name": "Initial Outreach — Garden/Tools (Short, Trusted Distributor)",
+    "tags": ["initial_outreach", "garden", "patio", "tools", "home_improvement", "short"],
+    "intents": [
+      "short first email to a garden or tools brand",
+      "introduce as a trusted distributor",
+      "ask for pricing and distribution policies",
+      "mention 200k order potential",
+      "concise initial outreach for garden patio tools"
+    ],
+    "description": "Short first outreach to a garden, tools or home improvement brand introducing as a trusted distributor and mentioning 500+ unit initial order with $200K potential",
+    "template": "Hi [Brand] Team,\n\nI hope you're doing well.\n\nI'm Aaron from [CompanyName] Distributor LLC, a trusted distributor in Garden, Tools & Home Improvement. We've successfully partnered with brands like [ExistingBrands] to expand their reach and boost sales.\n\nWe see a strong market demand for [Brand] and would love the opportunity to collaborate. We're prepared to place an initial order of 500+ units of [ProductName], with potential orders exceeding $200K in the coming months.\n\nCould you share details on your pricing and distribution policies?\n\nLooking forward to working together."
+  },
+  {
+    "id": "initial_outreach_garden_2",
+    "name": "Initial Outreach — Garden/Tools (Detailed, Sales Manager)",
+    "tags": ["initial_outreach", "garden", "patio", "tools", "home_improvement", "long_term_partnership", "detailed"],
+    "intents": [
+      "detailed first email to a garden or tools brand",
+      "introduce as sales manager",
+      "mention long term partnership",
+      "ask for wholesale pricing distribution terms and moq",
+      "formal outreach for garden patio home improvement"
+    ],
+    "description": "Detailed first outreach to a garden, tools or home improvement brand from a sales manager mentioning long-term partnership and $200K projected orders",
+    "template": "Hi [Brand] Team,\n\nI hope you're having a great day.\n\nI am Aaron, Sales Manager at [CompanyName] Distributor LLC, we specialize in growing premium brands in the Garden, Tools & Home Improvement. We've partnered with [ExistingBrands], helping them drive sales and expand their market reach.\n\nWe are looking forward to expanding our product offering in this category and we believe [Brand] has huge potential, and we're eager to contribute to its growth. We're ready to place an initial order of 500+ units of [ProductName], with projected orders exceeding $200K in the near future.\n\nCould you provide details on your wholesale pricing and distribution policies? We'd love to discuss how we can build a long-term partnership.\n\nLooking forward to your response."
+  },
+  {
+    "id": "initial_outreach_garden_3",
+    "name": "Initial Outreach — Garden/Tools (Leading Distributor, MOQ Ask)",
+    "tags": ["initial_outreach", "garden", "patio", "tools", "home_improvement", "moq", "scaling"],
+    "intents": [
+      "introduce as leading distributor in tools and garden",
+      "mention scaling to 200k orders",
+      "ask for wholesale pricing distribution terms and minimum order requirements",
+      "mention growing brand market share",
+      "outreach mentioning moq and scaling potential"
+    ],
+    "description": "First outreach to a garden or tools brand positioning as a leading distributor, mentions scaling to $200K+ and asks for pricing, distribution terms, and MOQ",
+    "template": "Hi [Brand] Team,\n\nI'm Aaron from [CompanyName] Distributor LLC, a leading distributor in the Tools, Garden & Home Improvement space. We've helped brands like [ExistingBrands] significantly grow their market share, and we see incredible potential for [Brand] as well.\n\nWe are interested in establishing a long-term relationship and are prepared to place an initial order of 500+ units of [ProductName], scaling up to $200K+ in orders in the coming months.\n\nCould you share details on your wholesale pricing, distribution terms, and any minimum order requirements? We'd love to explore how we can work together.\n\nLooking forward to hearing from you."
+  },
+  {
+    "id": "initial_outreach_garden_4",
+    "name": "Initial Outreach — Garden/Tools ($200K Partnership Opportunity)",
+    "tags": ["initial_outreach", "garden", "patio", "tools", "home_improvement", "partnership_opportunity", "sales_manager"],
+    "intents": [
+      "200k partnership opportunity subject line",
+      "sales manager introducing company in garden tools sector",
+      "bring products to broader audience",
+      "ask for wholesale pricing distribution terms moq",
+      "excited about brand potential outreach"
+    ],
+    "description": "First outreach with $200K Partnership Opportunity subject from a sales manager in garden tools sector, excited about brand potential and asks for pricing, terms, MOQ",
+    "template": "Subject: $200K Partnership Opportunity Inquiry\n\nHi [Brand] Team,\n\nI hope you're doing well!\n\nMy name is Aaron, and I'm the Sales Manager at [CompanyName] Distributor LLC. We specialize in the Garden, Tools & Home Improvement sector and have successfully partnered with industry-leading brands like [ExistingBrands], helping them expand their market presence and increase sales.\n\nWe believe [Brand] has great potential, and we're excited about the opportunity to help bring your products to a broader audience. We're ready to place an initial order of 500+ units of [ProductName], with future orders that could exceed $200K in the near future.\n\nCould you please provide more details on your wholesale pricing, distribution terms, and any minimum order requirements? We'd love to discuss how we can build a long-term and mutually beneficial partnership.\n\nLooking forward to your response."
+  },
+  {
+    "id": "initial_outreach_garden_5",
+    "name": "Initial Outreach — Garden/Tools (Partnership Inquiry, Heavy Investment)",
+    "tags": ["initial_outreach", "garden", "patio", "tools", "home_improvement", "heavy_investment", "partnership_inquiry"],
+    "intents": [
+      "partnership inquiry subject line",
+      "mention hundreds of thousands allocated for premium brands",
+      "investing heavily in category",
+      "brand stands out as top contender",
+      "ask for wholesale pricing distribution terms moq"
+    ],
+    "description": "First outreach to a garden or tools brand as a partnership inquiry, mentions hundreds of thousands allocated toward premium brands and that the brand is a top contender",
+    "template": "Subject: Partnership Inquiry - [Brand] x [CompanyName] Distributors\n\nHi [Brand] Team,\n\nI hope you're doing well!\n\nMy name is Aaron, and I'm the Sales Manager at [CompanyName] Distributors. We specialize in the Garden, Tools & Home Improvement category and have successfully partnered with industry-leading brands like [ExistingBrands], helping them expand their reach and significantly grow their sales.\n\nWe're currently looking to invest heavily into this category, with hundreds of thousands of dollars allocated toward premium, high-quality brands, and [Brand] stands out as a top contender. We're particularly interested in [ProductName] and are excited about the potential to build a long-term partnership that brings strong value to both sides.\n\nCould you please provide more details on your wholesale pricing, distribution terms, and any minimum order requirements?\n\nLooking forward to your response."
+  },
+  {
+    "id": "initial_outreach_garden_6",
+    "name": "Initial Outreach — Garden/Tools (Florida Distributor, Full-Line)",
+    "tags": ["initial_outreach", "garden", "patio", "tools", "home_improvement", "florida", "full_line_distributor"],
+    "intents": [
+      "florida based full line distributor outreach",
+      "tools home improvement patio lawn sports outdoors",
+      "business order inquiry subject line",
+      "share distribution policies and wholesale pricing",
+      "ask for specific product pricing as florida distributor"
+    ],
+    "description": "First outreach from a Florida-based full-line distributor covering Tools, Home Improvement, Patio & Lawn and Sports & Outdoors, asks for distribution policies and wholesale pricing for a specific product",
+    "template": "Subject: Business Order Inquiry - [CompanyName] x [Brand]\n\nHi [Brand] Team,\n\nMy name is Aaron, and I represent [CompanyName] Distributors, a Florida-based, full-line distributor with a growing portfolio of successful partnerships across top-performing categories such as Tools & Home Improvement, Patio & Lawn and Sports & Outdoors.\n\nFollowing consistent growth in these verticals, we are now expanding into these categories and are already working with major brands like [ExistingBrands]. As we strategically select high-demand, reputable brands to introduce to our network, we believe [Brand] would be an excellent fit for our portfolio.\n\nWe're looking forward to exploring how we can bring your brand to new audiences through our established distribution channels. To initiate this conversation, we'd appreciate it if you could share your distribution policies and wholesale pricing for the following item:\n[ProductName]\n\nWe are fully committed to representing our partner brands with integrity, professionalism, and strategic execution, and would love the chance to do the same for [Brand].\n\nLooking forward to your response.\n\nBest regards,\nAaron\nSales Manager\n386-272-7799\nwww.[CompanyName]distributors.com"
+  },
+  {
+    "id": "initial_outreach_electronics",
+    "name": "Initial Outreach — Electronics",
+    "tags": ["initial_outreach", "electronics", "wholesale_inquiry", "distributor_intro"],
+    "intents": [
+      "first email to a brand",
+      "introduce ourselves as a distributor",
+      "initial contact with electronics brand",
+      "ask for wholesale pricing",
+      "ask for distribution policies",
+      "new brand outreach",
+      "want to carry their product",
+      "first outreach for electronics"
+    ],
+    "description": "First outreach email to an electronics brand introducing the company as a distributor and requesting wholesale pricing and distribution policies",
+    "template": "Subject: Business Order Inquiry - [CompanyName] x [Brand]\n\nHi [Brand] Team,\n\nMy name is [RepName], and I represent [CompanyName] Distributors, a Florida-based, full-line distributor with a growing portfolio of successful partnerships across top-performing categories such as Industrial & Scientific, Equipment & Accessories, Electronics.\n\nFollowing consistent growth in these verticals, we are now expanding into these categories even more and are already working with brands like [ExistingBrands] etc. As we strategically select high-demand, reputable brands to introduce to our network, we believe [Brand] would be an excellent fit for our portfolio.\n\nWe're looking forward to explore how we can bring your brand to new audiences through our established distribution channels. To initiate this conversation, we'd appreciate it if you could share your distribution policies and wholesale pricing for the following item:\n[ProductName]\n\nWe are fully committed to representing our partner brands with integrity, professionalism, and strategic execution, and would love the chance to do the same for [Brand].\n\nLooking forward to your response.\n\nBest regards,\n[RepName]"
+  }
+]
