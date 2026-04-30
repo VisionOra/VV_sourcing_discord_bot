@@ -174,5 +174,771 @@
     ],
     "description": "First outreach email to an electronics brand introducing the company as a distributor and requesting wholesale pricing and distribution policies",
     "template": "Subject: Business Order Inquiry - [CompanyName] x [Brand]\n\nHi [Brand] Team,\n\nMy name is [RepName], and I represent [CompanyName] Distributors, a Florida-based, full-line distributor with a growing portfolio of successful partnerships across top-performing categories such as Industrial & Scientific, Equipment & Accessories, Electronics.\n\nFollowing consistent growth in these verticals, we are now expanding into these categories even more and are already working with brands like [ExistingBrands] etc. As we strategically select high-demand, reputable brands to introduce to our network, we believe [Brand] would be an excellent fit for our portfolio.\n\nWe're looking forward to explore how we can bring your brand to new audiences through our established distribution channels. To initiate this conversation, we'd appreciate it if you could share your distribution policies and wholesale pricing for the following item:\n[ProductName]\n\nWe are fully committed to representing our partner brands with integrity, professionalism, and strategic execution, and would love the chance to do the same for [Brand].\n\nLooking forward to your response.\n\nBest regards,\n[RepName]"
+  },
+  {
+    "id": "initial_outreach_generic_1",
+    "name": "Initial Outreach — Generic Short (Brand Relations, $200K–$300K)",
+    "tags": ["initial_outreach", "generic", "short", "brand_relations", "pricing_request"],
+    "intents": [
+      "short first email to any brand",
+      "brand relations manager introduction",
+      "ask for pricing and distribution policies",
+      "mention 200k to 300k order potential",
+      "short generic initial outreach",
+      "asking for pricing on a product",
+      "first contact with any brand or niche"
+    ],
+    "description": "Short generic first outreach from a Brand Relations Manager mentioning $200K–$300K order potential and asking for pricing and distribution policies. Works for any niche.",
+    "template": "Hi [Brand] Team,\n\nI hope you're doing well!\n\nI'm [RepName], the Brand Relations Manager at [CompanyName]. Our company prides itself on sourcing premium quality brands in the [Niche] to provide our customers with exceptional products.\n\nWe're eager to purchase your products, with the potential for a $200K–$300K order in the upcoming months. We firmly believe that a partnership between us could significantly enhance your brand awareness through the utilization of our resources.\n\nCould you kindly provide us with information regarding your pricing and distribution policies?\n\nPlease let me know if you have any questions.\n\nThanks."
+  },
+  {
+    "id": "initial_outreach_generic_2",
+    "name": "Initial Outreach — Generic Bulk Order (100–300 Units, $100K–$200K)",
+    "tags": ["initial_outreach", "generic", "bulk_order", "pricing_request"],
+    "intents": [
+      "bulk order first email",
+      "300 unit initial order",
+      "100k to 200k order value",
+      "ask for pricing and distribution options",
+      "generic outreach for any category or product",
+      "first email mentioning bulk quantity"
+    ],
+    "description": "Generic first outreach mentioning a 300+ unit bulk order with $100K–$200K estimated value, asking for pricing and distribution options. Works for any brand or category.",
+    "template": "Hi [Brand] Team,\n\nI hope this email finds you well. My name is [RepName], and I represent [CompanyName]. We specialize in [Category] and are excited about the potential for collaboration with your brand.\n\nWe are considering a bulk order of [ProductName]. Our initial requirement is for over 300 units, and we estimate an order value between $100K–$200K for your products.\n\nCould you please share your pricing and distribution options for bulk orders? We'd love to explore how we can work together to bring your products to our customers.\n\nLooking forward to your response!"
+  },
+  {
+    "id": "initial_outreach_generic_3",
+    "name": "Initial Outreach — In-Depth Florida Distributor (100 Units, $100K Annual)",
+    "tags": ["initial_outreach", "generic", "florida", "detailed", "warehouse", "annual_estimate"],
+    "intents": [
+      "detailed first email to any brand",
+      "florida based distributor introduction",
+      "10000 square foot warehouse mention",
+      "100 units order in hand",
+      "100k annual purchasing estimate",
+      "100 percent advance payment",
+      "wholesale and direct to consumer",
+      "in depth formal initial outreach"
+    ],
+    "description": "Detailed formal first outreach from a Florida-based full-line distributor with a 10,000 sq ft warehouse. Mentions 100 units on hand and $100K annual estimate with 100% advance payment. Works for any brand or product.",
+    "template": "Dear [Name],\n\nMy name is [RepName], and I represent [CompanyName], a Florida-based full-line distribution company. We specialize in collaborating with innovative brands in the [Category] space, operating from a 10,000 square-foot warehouse.\n\nWe focus on scaling across the wholesale and direct-to-consumer sectors. We are very interested in the [ProductName] — a standout product known for its [ProductDescription]. Its credibility in [Sector] makes it a great fit for our consumer-focused distribution channels.\n\nWe currently have an order in hand for 100 units, and we're positioned to move forward with an annual purchasing estimate of $100,000, with 100% advance payment.\n\nKindly share your wholesale or purchasing pricing and the next steps to initiate our business relationship. We look forward to working together.\n\nWarm regards,\n[RepName]\n[CompanyName]"
+  },
+  {
+    "id": "initial_outreach_generic_4",
+    "name": "Initial Outreach — Full-Line Distributor Portfolio Expansion",
+    "tags": ["initial_outreach", "generic", "florida", "full_line", "portfolio_expansion", "categories"],
+    "intents": [
+      "florida full line distributor expanding into new category",
+      "already working with other brands",
+      "ask for distributor or wholesale pricing",
+      "mention existing brand partnerships",
+      "introduce brand to distribution network",
+      "portfolio expansion outreach",
+      "strategic brand selection"
+    ],
+    "description": "First outreach from a Florida-based full-line distributor expanding into a new category. Mentions existing brand partnerships and asks for distributor or wholesale pricing on specific products. Works for any category or brand.",
+    "template": "Hi [Brand] Team,\n\nMy name is [RepName], and I represent [CompanyName] Distributors, a Florida-based, full-line distributor with a growing portfolio of successful partnerships across top-performing categories such as [Categories].\n\nFollowing consistent growth in these verticals, we are now expanding into [NewCategory] and are already working with brands like [ExistingBrands] and many more. As we strategically select high-demand, reputable brands to introduce to our network, we believe [Brand] would be an excellent fit for our portfolio.\n\nWe're looking forward to exploring how we can bring your brand to new audiences through our established distribution channels. To initiate this conversation, we'd appreciate it if you could share your distributor or wholesale pricing for the following item: [ProductName]\n\nWe are fully committed to representing our partner brands with integrity, professionalism, and strategic execution, and would love the chance to do the same for [Brand].\n\nLooking forward to your response."
+  },
+  {
+    "id": "initial_outreach_sales_rep",
+    "name": "Initial Outreach — Directed to Sales Rep by Another Contact",
+    "tags": ["initial_outreach", "sales_rep", "referral", "wholesale_account", "bulk_order"],
+    "intents": [
+      "directed to sales rep by another person",
+      "referred to sales rep",
+      "setting up wholesale account",
+      "purchase in bulk quantity",
+      "100k to 200k initial order",
+      "ask about wholesale pricing terms and account setup",
+      "follow up after being redirected"
+    ],
+    "description": "First outreach to a sales rep after being referred by another contact. Mentions interest in a wholesale account, bulk order of $100K–$200K, and asks for pricing, terms, and account setup steps.",
+    "template": "Hi [RepName],\n\nI hope you're doing well. I recently contacted [PreviousContactName] regarding setting up a wholesale account as we want to purchase your products in bulk quantity, and they directed me to reach out to you for the next steps.\n\nWe're interested in carrying the [ProductName] and placing an initial order anywhere from $100K–$200K. We would like to learn more about the wholesale pricing, terms, and account setup process. Please let me know the necessary steps to proceed.\n\nThanks,\n[YourName]\n[CompanyName]"
+  },
+  {
+    "id": "initial_outreach_musical_1",
+    "name": "MUSICAL INSTRUMENTS — Business Order Inquiry (Full-Line Distributor)",
+    "tags": ["initial_outreach", "musical_instruments", "equipment", "full_line", "florida"],
+    "intents": [
+      "first email to a musical instruments brand",
+      "musical equipment outreach",
+      "arts crafts electronics distributor expanding into music",
+      "ask for distributor or wholesale pricing for musical product",
+      "full line distributor music category"
+    ],
+    "description": "First outreach to a musical instruments or equipment brand from a Florida-based full-line distributor expanding into Musical & Equipment categories, asking for distributor or wholesale pricing on a specific product.",
+    "template": "Subject: Business Order Inquiry - [Brand] x [CompanyName]\n\nHi [Brand] Team,\n\nMy name is [RepName], and I represent [CompanyName] Distributors, a Florida-based, full-line distributor with a growing portfolio of successful partnerships across top-performing categories such as Arts & Crafts & Electronics.\n\nFollowing consistent growth in these verticals, we are now expanding into the Musical & Equipment categories and are already working with brands like [ExistingBrands] and many more. As we strategically select high-demand, reputable brands to introduce to our network, we believe [Brand] would be an excellent fit for our portfolio.\n\nWe're looking forward to exploring how we can bring your brand to new audiences through our established distribution channels. To initiate this conversation, we'd appreciate it if you could share your distributor or wholesale pricing for the following item:\n[ProductName]\n\nWe are fully committed to representing our partner brands with integrity, professionalism, and strategic execution, and would love the chance to do the same for [Brand].\n\nLooking forward to your response.\n\nBest regards,\n[RepName]\n[CompanyName]"
+  },
+  {
+    "id": "initial_outreach_musical_2",
+    "name": "MUSICAL INSTRUMENTS — Partnership Inquiry (Heavy Investment, Sales Manager)",
+    "tags": ["initial_outreach", "musical_instruments", "partnership_inquiry", "heavy_investment", "sales_manager"],
+    "intents": [
+      "partnership inquiry to musical instruments brand",
+      "sales manager music category outreach",
+      "hundreds of thousands allocated for music brands",
+      "top contender music brand",
+      "ask for wholesale pricing distribution terms moq for music"
+    ],
+    "description": "Partnership inquiry to a musical instruments brand from a Sales Manager, mentioning hundreds of thousands allocated toward premium brands and the brand as a top contender. Asks for wholesale pricing, distribution terms, and MOQ.",
+    "template": "Subject: Partnership Inquiry - [Brand] x [CompanyName] Distributors\n\nHi [Brand] Team,\n\nI hope you're doing well!\n\nMy name is [RepName], and I'm the Sales Manager at [CompanyName] Distributors. We specialize in the Musical Instruments & Equipment category and have successfully partnered with industry-leading brands like [ExistingBrands], helping them expand their reach and significantly grow their sales.\n\nWe're currently looking to invest heavily into this category, with hundreds of thousands of dollars allocated toward premium, high-quality brands, and [Brand] stands out as a top contender. We're particularly interested in [ProductName] and are excited about the potential to build a long-term partnership that brings strong value to both sides.\n\nCould you please provide more details on your wholesale pricing, distribution terms, and any minimum order requirements?\n\nLooking forward to your response."
+  },
+  {
+    "id": "initial_outreach_toys_1",
+    "name": "TOYS — Business Order Inquiry (Full-Line Distributor)",
+    "tags": ["initial_outreach", "toys", "games", "arts_crafts", "full_line", "florida"],
+    "intents": [
+      "first email to a toys brand",
+      "toys and games outreach",
+      "arts crafts toys distributor",
+      "ask for distributor or wholesale pricing for toy product",
+      "full line distributor toys category"
+    ],
+    "description": "First outreach to a toys or games brand from a Florida-based full-line distributor specializing in Toys & Games and Arts & Crafts, asking for distributor or wholesale pricing on a specific product.",
+    "template": "Subject: Business Order Inquiry - [Brand] x [CompanyName]\n\nHi [Brand] Team,\n\nMy name is [RepName], and I represent [CompanyName] Distributors, a Florida-based, full-line distributor with a growing portfolio of successful partnerships across top-performing categories such as Toys & Games and Arts & Crafts.\n\nWe are already working with brands like [ExistingBrands] and many more. As we strategically select high-demand, reputable brands to introduce to our network, we believe [Brand] would be an excellent fit for our portfolio.\n\nWe're looking forward to exploring how we can bring your brand to new audiences through our established distribution channels. To initiate this conversation, we'd appreciate it if you could share your distributor or wholesale pricing for the following item:\n[ProductName]\n\nWe are fully committed to representing our partner brands with integrity, professionalism, and strategic execution, and would love the chance to do the same for [Brand].\n\nLooking forward to your response.\n\nBest regards,\n[RepName]\n[CompanyName]"
+  },
+  {
+    "id": "initial_outreach_toys_2",
+    "name": "TOYS — Partnership Inquiry (Heavy Investment, Sales Manager)",
+    "tags": ["initial_outreach", "toys", "games", "partnership_inquiry", "heavy_investment", "sales_manager"],
+    "intents": [
+      "partnership inquiry to toys brand",
+      "sales manager toys category outreach",
+      "hundreds of thousands allocated for toys brands",
+      "top contender toys brand",
+      "ask for wholesale pricing distribution terms moq for toys"
+    ],
+    "description": "Partnership inquiry to a toys or games brand from a Sales Manager, mentioning hundreds of thousands allocated toward premium brands and the brand as a top contender. Asks for wholesale pricing, distribution terms, and MOQ.",
+    "template": "Subject: Partnership Inquiry - [Brand] x [CompanyName] Distributors\n\nHi [Brand] Team,\n\nI hope you're doing well!\n\nMy name is [RepName], and I'm the Sales Manager at [CompanyName] Distributors. We specialize in the Toys & Games and Arts & Crafts category and have successfully partnered with industry-leading brands like [ExistingBrands], helping them expand their reach and significantly grow their sales.\n\nWe're currently looking to invest heavily into this category, with hundreds of thousands of dollars allocated toward premium, high-quality brands, and [Brand] stands out as a top contender. We're particularly interested in [ProductName] and are excited about the potential to build a long-term partnership that brings strong value to both sides.\n\nCould you please provide more details on your wholesale pricing, distribution terms, and any minimum order requirements?\n\nLooking forward to your response."
+  },
+  {
+    "id": "initial_outreach_clothes_1",
+    "name": "CLOTHES — Business Order Inquiry (Full-Line Distributor)",
+    "tags": ["initial_outreach", "clothes", "shoes", "apparel", "sports_outdoors", "full_line", "florida"],
+    "intents": [
+      "first email to a clothing brand",
+      "clothes shoes accessories outreach",
+      "apparel distributor expanding into clothing",
+      "ask for distribution policies and wholesale pricing for clothing",
+      "full line distributor clothes shoes category"
+    ],
+    "description": "First outreach to a clothing, shoes, or accessories brand from a Florida-based full-line distributor expanding into Clothes & Shoes categories, asking for distribution policies and wholesale pricing on a specific product.",
+    "template": "Subject: Business Order Inquiry - [CompanyName] x [Brand]\n\nHi [Brand] Team,\n\nMy name is [RepName], and I represent [CompanyName] Distributors, a Florida-based, full-line distributor with a growing portfolio of successful partnerships across top-performing categories such as Beauty & Personal Care, Clothing, Shoes & Accessories and Sports & Outdoors.\n\nFollowing consistent growth in these verticals, we are now expanding into the Clothes & Shoes categories even more and are already working with brands like [ExistingBrands] etc. As we strategically select high-demand, reputable brands to introduce to our network, we believe [Brand] would be an excellent fit for our portfolio.\n\nWe're looking forward to exploring how we can bring your brand to new audiences through our established distribution channels. To initiate this conversation, we'd appreciate it if you could share your distribution policies and wholesale pricing for the following item:\n[ProductName]\n\nWe are fully committed to representing our partner brands with integrity, professionalism, and strategic execution, and would love the chance to do the same for [Brand].\n\nLooking forward to your response.\n\nBest regards,\n[RepName]\n[CompanyName]"
+  },
+  {
+    "id": "initial_outreach_clothes_2",
+    "name": "CLOTHES — Partnership Inquiry (Heavy Investment, Sales Manager)",
+    "tags": ["initial_outreach", "clothes", "shoes", "apparel", "partnership_inquiry", "heavy_investment", "sales_manager"],
+    "intents": [
+      "partnership inquiry to clothing or apparel brand",
+      "sales manager clothes shoes category outreach",
+      "hundreds of thousands allocated for clothing brands",
+      "top contender clothing brand",
+      "ask for wholesale pricing distribution terms moq for clothes"
+    ],
+    "description": "Partnership inquiry to a clothing or apparel brand from a Sales Manager, mentioning hundreds of thousands allocated toward premium brands and the brand as a top contender. Asks for wholesale pricing, distribution terms, and MOQ.",
+    "template": "Subject: Partnership Inquiry - [Brand] x [CompanyName] Distributors\n\nHi [Brand] Team,\n\nI hope you're doing well!\n\nMy name is [RepName], and I'm the Sales Manager at [CompanyName] Distributors. We specialize in the Beauty & Personal Care, Clothing, Shoes & Accessories category and have successfully partnered with industry-leading brands like [ExistingBrands], helping them expand their reach and significantly grow their sales.\n\nWe're currently looking to invest heavily into this category, with hundreds of thousands of dollars allocated toward premium, high-quality brands, and [Brand] stands out as a top contender. We're particularly interested in [ProductName] and are excited about the potential to build a long-term partnership that brings strong value to both sides.\n\nCould you please provide more details on your wholesale pricing, distribution terms, and any minimum order requirements?\n\nLooking forward to your response."
+  },
+  {
+    "id": "initial_outreach_beauty_1",
+    "name": "BEAUTY & PERSONAL CARE — Business Order Inquiry (Full-Line Distributor)",
+    "tags": ["initial_outreach", "beauty", "personal_care", "health_household", "sports_outdoors", "full_line", "florida"],
+    "intents": [
+      "first email to a beauty brand",
+      "personal care outreach",
+      "beauty health household distributor expanding into beauty",
+      "ask for distribution policies and wholesale pricing for beauty product",
+      "full line distributor beauty personal care category"
+    ],
+    "description": "First outreach to a beauty or personal care brand from a Florida-based full-line distributor expanding into Beauty & Personal Care, asking for distribution policies and wholesale pricing on a specific product.",
+    "template": "Subject: Business Order Inquiry - [CompanyName] x [Brand]\n\nHi [Brand] Team,\n\nMy name is [RepName], and I represent [CompanyName] Distributors, a Florida-based, full-line distributor with a growing portfolio of successful partnerships across top-performing categories such as Beauty & Personal Care, Health & Household and Sports & Outdoors.\n\nFollowing consistent growth in these verticals, we are now expanding into the Beauty & Personal Care categories and are already working with brands like [ExistingBrands] etc. As we strategically select high-demand, reputable brands to introduce to our network, we believe [Brand] would be an excellent fit for our portfolio.\n\nWe're looking forward to explore how we can bring your brand to new audiences through our established distribution channels. To initiate this conversation, we'd appreciate it if you could share your distribution policies and wholesale pricing for the following item:\n[ProductName]\n\nWe are fully committed to representing our partner brands with integrity, professionalism, and strategic execution, and would love the chance to do the same for [Brand].\n\nLooking forward to your response.\n\nBest regards,\n[RepName]\n[CompanyName]"
+  },
+  {
+    "id": "initial_outreach_beauty_2",
+    "name": "BEAUTY — Partnership Inquiry (Heavy Investment, Sales Manager)",
+    "tags": ["initial_outreach", "beauty", "personal_care", "partnership_inquiry", "heavy_investment", "sales_manager"],
+    "intents": [
+      "partnership inquiry to beauty brand",
+      "sales manager beauty personal care category outreach",
+      "hundreds of thousands allocated for beauty brands",
+      "top contender beauty brand",
+      "ask for wholesale pricing distribution terms moq for beauty"
+    ],
+    "description": "Partnership inquiry to a beauty or personal care brand from a Sales Manager, mentioning hundreds of thousands allocated toward premium beauty brands and the brand as a top contender. Asks for wholesale pricing, distribution terms, and MOQ.",
+    "template": "Subject: Partnership Inquiry - [Brand] x [CompanyName] Distributors\n\nHi [Brand] Team,\n\nI hope you're doing well!\n\nMy name is [RepName], and I'm the Sales Manager at [CompanyName] Distributors. We specialize in the Beauty & Personal Care, Health & Household category and have successfully partnered with industry-leading brands like [ExistingBrands] etc., helping them expand their reach and significantly grow their sales.\n\nWe're currently looking to invest heavily into this category, with hundreds of thousands of dollars allocated toward premium, high-quality brands, and [Brand] stands out as a top contender. We're particularly interested in [ProductName] and are excited about the potential to build a long-term partnership that brings strong value to both sides.\n\nCould you please provide more details on your wholesale pricing, distribution terms, and any minimum order requirements?\n\nLooking forward to your response."
+  },
+  {
+    "id": "initial_outreach_health_1",
+    "name": "HEALTH & HOUSEHOLD — Business Order Inquiry (Full-Line Distributor)",
+    "tags": ["initial_outreach", "health", "household", "personal_care", "sports_outdoors", "full_line", "florida"],
+    "intents": [
+      "first email to a health brand",
+      "household products outreach",
+      "health household distributor expanding into health category",
+      "ask for distribution policies and wholesale pricing for health product",
+      "full line distributor health household category"
+    ],
+    "description": "First outreach to a health or household brand from a Florida-based full-line distributor expanding into Health & Household categories, asking for distribution policies and wholesale pricing on a specific product.",
+    "template": "Subject: Business Order Inquiry - [CompanyName] x [Brand]\n\nHi [Brand] Team,\n\nMy name is [RepName], and I represent [CompanyName] Distributors, a Florida-based, full-line distributor with a growing portfolio of successful partnerships across top-performing categories such as Beauty & Personal Care, Health & Household and Sports & Outdoors.\n\nFollowing consistent growth in these verticals, we are now expanding into the Health & Household categories even more and are already working with brands like [ExistingBrands] etc. As we strategically select high-demand, reputable brands to introduce to our network, we believe [Brand] would be an excellent fit for our portfolio.\n\nWe're looking forward to explore how we can bring your brand to new audiences through our established distribution channels. To initiate this conversation, we'd appreciate it if you could share your distribution policies and wholesale pricing for the following item:\n[ProductName]\n\nWe are fully committed to representing our partner brands with integrity, professionalism, and strategic execution, and would love the chance to do the same for [Brand].\n\nLooking forward to your response.\n\nBest regards,\n[RepName]\n[CompanyName]"
+  },
+  {
+    "id": "initial_outreach_health_2",
+    "name": "HEALTH — Partnership Inquiry (Heavy Investment, Sales Manager)",
+    "tags": ["initial_outreach", "health", "household", "personal_care", "partnership_inquiry", "heavy_investment", "sales_manager"],
+    "intents": [
+      "partnership inquiry to health brand",
+      "sales manager health household category outreach",
+      "hundreds of thousands allocated for health brands",
+      "top contender health brand",
+      "ask for wholesale pricing distribution terms moq for health"
+    ],
+    "description": "Partnership inquiry to a health or household brand from a Sales Manager, mentioning hundreds of thousands allocated toward premium health brands and the brand as a top contender. Asks for wholesale pricing, distribution terms, and MOQ.",
+    "template": "Subject: Partnership Inquiry - [Brand] x [CompanyName] Distributors\n\nHi [Brand] Team,\n\nI hope you're doing well!\n\nMy name is [RepName], and I'm the Sales Manager at [CompanyName] Distributors. We specialize in the Personal Care, Health & Household category and have successfully partnered with industry-leading brands like [ExistingBrands] etc., helping them expand their reach and significantly grow their sales.\n\nWe're currently looking to invest heavily into this category, with hundreds of thousands of dollars allocated toward premium, high-quality brands, and [Brand] stands out as a top contender. We're particularly interested in [ProductName] and are excited about the potential to build a long-term partnership that brings strong value to both sides.\n\nCould you please provide more details on your wholesale pricing, distribution terms, and any minimum order requirements?\n\nLooking forward to your response."
+  },
+  {
+    "id": "initial_outreach_baby_1",
+    "name": "BABY PRODUCTS — Business Order Inquiry (Full-Line Distributor)",
+    "tags": ["initial_outreach", "baby", "baby_products", "full_line", "florida"],
+    "intents": [
+      "first email to a baby products brand",
+      "baby products outreach",
+      "distributor expanding into baby products category",
+      "ask for distribution policies and wholesale pricing for baby product",
+      "full line distributor baby category"
+    ],
+    "description": "First outreach to a baby products brand from a Florida-based full-line distributor expanding into Baby Products categories, asking for distribution policies and wholesale pricing on a specific product.",
+    "template": "Subject: Business Order Inquiry - [CompanyName] x [Brand]\n\nHi [Brand] Team,\n\nMy name is [RepName], and I represent [CompanyName] Distributors, a Florida-based, full-line distributor with a growing portfolio of successful partnerships across top-performing categories such as Beauty & Personal Care, Clothing, Shoes & Accessories and Sports & Outdoors.\n\nFollowing consistent growth in these verticals, we are now expanding into the Baby Products categories even more and are already working with brands like [ExistingBrands] etc. As we strategically select high-demand, reputable brands to introduce to our network, we believe [Brand] would be an excellent fit for our portfolio.\n\nWe're looking forward to explore how we can bring your brand to new audiences through our established distribution channels. To initiate this conversation, we'd appreciate it if you could share your distribution policies and wholesale pricing for the following item:\n[ProductName]\n\nWe are fully committed to representing our partner brands with integrity, professionalism, and strategic execution, and would love the chance to do the same for [Brand].\n\nLooking forward to your response.\n\nBest regards,\n[RepName]\n[CompanyName]"
+  },
+  {
+    "id": "initial_outreach_grocery_1",
+    "name": "GROCERY — Business Order Inquiry (Full-Line Distributor, Florida)",
+    "tags": ["initial_outreach", "grocery", "food", "home_improvement", "kitchen", "patio", "full_line", "florida"],
+    "intents": [
+      "first email to a grocery or food brand",
+      "grocery food outreach",
+      "florida full line distributor expanding into grocery",
+      "ask for distributor or wholesale pricing for food product",
+      "business order inquiry subject line grocery"
+    ],
+    "description": "First outreach to a grocery or food brand from a Florida-based full-line distributor covering Home Improvement & Kitchen, Patio & Lawn, and Grocery & Food. Asks for distributor or wholesale pricing on a specific product.",
+    "template": "Subject: Business Order Inquiry - [CompanyName] x [Brand]\n\nHi [Brand] Team,\n\nMy name is Aaron, and I represent [CompanyName] Distributors, a Florida-based, full-line distributor with a growing portfolio of successful partnerships across top-performing categories such as Home Improvement & Kitchen, Patio & Lawn, Grocery & Food.\n\nWe are already working with brands like [ExistingBrands] and many more. As we strategically select high-demand, reputable brands to introduce to our network, we believe [Brand] would be an excellent fit for our portfolio.\n\nWe're looking forward to exploring how we can bring your brand to new audiences through our established distribution channels. To initiate this conversation, we'd appreciate it if you could share your distributor or wholesale pricing for the following item:\n[ProductName]\n\nWe are fully committed to representing our partner brands with integrity, professionalism, and strategic execution, and would love the chance to do the same for [Brand].\n\nLooking forward to your response.\n\nBest regards,"
+  },
+  {
+    "id": "initial_outreach_grocery_2",
+    "name": "GROCERY — Partnership Inquiry (Heavy Investment, Sales Manager)",
+    "tags": ["initial_outreach", "grocery", "food", "partnership_inquiry", "heavy_investment", "sales_manager"],
+    "intents": [
+      "partnership inquiry to grocery or food brand",
+      "sales manager grocery food category outreach",
+      "hundreds of thousands allocated for food brands",
+      "top contender grocery brand",
+      "ask for wholesale pricing distribution terms moq for food"
+    ],
+    "description": "Partnership inquiry to a grocery or food brand from a Sales Manager, mentioning hundreds of thousands allocated toward premium brands and the brand as a top contender. Asks for wholesale pricing, distribution terms, and MOQ.",
+    "template": "Subject: Partnership Inquiry - [Brand] x [CompanyName] Distributors\n\nHi [Brand] Team,\n\nI hope you're doing well!\n\nMy name is Aaron, and I'm the Sales Manager at [CompanyName] Distributors. We specialize in the Home Improvement & Kitchen, Patio & Lawn, Grocery & Food category and have successfully partnered with industry-leading brands like [ExistingBrands], helping them expand their reach and significantly grow their sales.\n\nWe're currently looking to invest heavily into this category, with hundreds of thousands of dollars allocated toward premium, high-quality brands, and [Brand] stands out as a top contender. We're particularly interested in [ProductName] and are excited about the potential to build a long-term partnership that brings strong value to both sides.\n\nCould you please provide more details on your wholesale pricing, distribution terms, and any minimum order requirements?\n\nLooking forward to your response."
+  },
+  {
+    "id": "initial_outreach_sports_1",
+    "name": "SPORTS & OUTDOORS — Short Outreach (Trusted Distributor, $200K)",
+    "tags": ["initial_outreach", "sports", "outdoors", "camping", "hiking", "short", "200k"],
+    "intents": [
+      "short first email to a sports or outdoor brand",
+      "sports outdoors distributor introduction",
+      "ask for pricing and distribution policies for sports product",
+      "mention 500 unit initial order with 200k potential",
+      "concise sports outdoor outreach"
+    ],
+    "description": "Short first outreach to a sports, outdoors, camping, or hiking brand from a trusted distributor mentioning 500+ unit initial order with $200K potential.",
+    "template": "Subject: Wholesale Inquiry for Purchase of $200K\n\nHi [Brand] Team,\n\nI hope you're doing well.\n\nI'm Aaron from [CompanyName] Distributor LLC, a trusted distributor in Sports and Outdoor category. We've successfully partnered with brands like [ExistingBrands] to expand their reach and boost sales.\n\nWe see a strong market demand for [Brand] and would love the opportunity to collaborate. We're prepared to place an initial order of 500+ units of [ProductName], with potential orders exceeding $200K in the coming months.\n\nCould you share details on your pricing and distribution policies?\n\nLooking forward to working together."
+  },
+  {
+    "id": "initial_outreach_sports_2",
+    "name": "SPORTS & OUTDOORS — Detailed Outreach (Sales Manager, Long-Term Partnership)",
+    "tags": ["initial_outreach", "sports", "outdoors", "camping", "hiking", "detailed", "sales_manager", "200k"],
+    "intents": [
+      "detailed first email to a sports or outdoor brand",
+      "sales manager sports outdoor introduction",
+      "expanding product offering in sports category",
+      "ask for wholesale pricing distribution policies sports",
+      "long term partnership sports outdoors"
+    ],
+    "description": "Detailed first outreach to a sports or outdoor brand from a Sales Manager mentioning 500+ unit initial order with $200K projected orders and long-term partnership intent.",
+    "template": "Subject: Wholesale Inquiry for Purchase of $200K\n\nHi [Brand] Team,\n\nI hope you're having a great day.\n\nI am Aaron, Sales Manager at [CompanyName] Distributor LLC, we specialize in growing premium brands in the Sports and Outdoor category. We've partnered with [ExistingBrands], helping them drive sales and expand their market reach.\n\nWe are looking forward to expanding our product offering in this category and we believe [Brand] has huge potential, and we're eager to contribute to its growth. We're ready to place an initial order of 500+ units of [ProductName], with projected orders exceeding $200K in the near future.\n\nCould you provide details on your wholesale pricing and distribution policies? We'd love to discuss how we can build a long-term partnership.\n\nLooking forward to your response."
+  },
+  {
+    "id": "initial_outreach_sports_3",
+    "name": "SPORTS & OUTDOORS — Leading Distributor (MOQ Ask, Scaling to $200K+)",
+    "tags": ["initial_outreach", "sports", "outdoors", "camping", "hiking", "moq", "scaling", "200k"],
+    "intents": [
+      "introduce as leading distributor in sports outdoors",
+      "mention scaling to 200k orders sports",
+      "ask for wholesale pricing distribution terms moq sports",
+      "growing brand market share sports outdoors",
+      "sports outdoor outreach mentioning moq and scaling"
+    ],
+    "description": "First outreach to a sports or outdoor brand positioning as a leading distributor, mentions scaling to $200K+ and asks for pricing, distribution terms, and MOQ.",
+    "template": "Subject: Wholesale Inquiry for Purchase of $200K\n\nHi [Brand] Team,\n\nI'm Aaron from [CompanyName] Distributor LLC, a leading distributor in the Sports and Outdoor category. We've helped brands like [ExistingBrands] significantly grow their market share, and we see incredible potential for [Brand] as well.\n\nWe are interested in establishing a long-term relationship and are prepared to place an initial order of 500+ units of [ProductName], scaling up to $200K+ in orders in the coming months.\n\nCould you share details on your wholesale pricing, distribution terms, and any minimum order requirements? We'd love to explore how we can work together.\n\nLooking forward to hearing from you."
+  },
+  {
+    "id": "initial_outreach_sports_4",
+    "name": "SPORTS & OUTDOORS — $200K Partnership Opportunity (Sales Manager)",
+    "tags": ["initial_outreach", "sports", "outdoors", "survival", "camping", "hiking", "partnership_opportunity", "sales_manager", "200k"],
+    "intents": [
+      "200k partnership opportunity sports outdoors",
+      "sales manager sports survival camping hiking introduction",
+      "bring sports products to broader audience",
+      "ask for wholesale pricing distribution terms moq sports",
+      "excited about sports brand potential"
+    ],
+    "description": "First outreach with $200K Partnership Opportunity subject to a sports, survival, camping or hiking brand from a Sales Manager asking for pricing, terms, and MOQ.",
+    "template": "Subject: $200K Partnership Opportunity Inquiry\n\nHi [Brand] Team,\n\nI hope you're doing well!\n\nMy name is Aaron, and I'm the Sales Manager at [CompanyName] Distributor LLC. We specialize in the Sports, Survival, Camping & Hiking gear sector and have successfully partnered with industry-leading brands like [ExistingBrands], helping them expand their market presence and increase sales.\n\nWe believe [Brand] has great potential, and we're excited about the opportunity to help bring your products to a broader audience. We're ready to place an initial order of 500+ units of [ProductName], with future orders that could exceed $200K in the near future.\n\nCould you please provide more details on your wholesale pricing, distribution terms, and any minimum order requirements? We'd love to discuss how we can build a long-term and mutually beneficial partnership.\n\nLooking forward to your response."
+  },
+  {
+    "id": "initial_outreach_sports_5",
+    "name": "SPORTS & OUTDOORS — Partnership Inquiry (Heavy Investment, Sales Manager)",
+    "tags": ["initial_outreach", "sports", "outdoors", "survival", "camping", "hiking", "partnership_inquiry", "heavy_investment", "sales_manager"],
+    "intents": [
+      "partnership inquiry to sports or outdoor brand",
+      "sales manager sports camping hiking category outreach",
+      "hundreds of thousands allocated for sports brands",
+      "top contender sports brand",
+      "ask for wholesale pricing distribution terms moq for sports"
+    ],
+    "description": "Partnership inquiry to a sports, survival, camping or hiking brand from a Sales Manager, mentioning hundreds of thousands allocated toward premium brands and the brand as a top contender. Asks for wholesale pricing, distribution terms, and MOQ.",
+    "template": "Subject: Partnership Inquiry - [Brand] x [CompanyName] Distributors\n\nHi [Brand] Team,\n\nI hope you're doing well!\n\nMy name is Aaron, and I'm the Sales Manager at [CompanyName] Distributors. We specialize in the Sports, Survival, Camping & Hiking gear category and have successfully partnered with industry-leading brands like [ExistingBrands], helping them expand their reach and significantly grow their sales.\n\nWe're currently looking to invest heavily into this category, with hundreds of thousands of dollars allocated toward premium, high-quality brands, and [Brand] stands out as a top contender. We're particularly interested in [ProductName] and are excited about the potential to build a long-term partnership that brings strong value to both sides.\n\nCould you please provide more details on your wholesale pricing, distribution terms, and any minimum order requirements?\n\nLooking forward to your response."
+  },
+  {
+    "id": "initial_outreach_art_office_1",
+    "name": "ART & OFFICE — Partnership Inquiry (Heavy Investment, Sales Manager)",
+    "tags": ["initial_outreach", "art", "office", "arts_crafts", "office_supplies", "tools", "sports", "partnership_inquiry", "heavy_investment", "sales_manager"],
+    "intents": [
+      "partnership inquiry to art or office supplies brand",
+      "sales manager arts crafts office supplies outreach",
+      "hundreds of thousands allocated for art office brands",
+      "top contender art or office brand",
+      "ask for wholesale pricing distribution terms moq for art office"
+    ],
+    "description": "Partnership inquiry to an art, office supplies, or tools brand from a Sales Manager covering Tools & Home Improvement, Sports & Outdoors, Office Supplies, and Arts & Craft. Asks for wholesale pricing, distribution terms, and MOQ.",
+    "template": "Subject: Partnership Inquiry - [Brand] x [CompanyName] Distributors\n\nHi [Brand] Team,\n\nI hope you're doing well!\n\nMy name is Aaron, and I'm the Sales Manager at [CompanyName] Distributors. We specialize in the Tools & Home Improvement, Sports & Outdoors, Office Supplies, and Arts & Craft category and have successfully partnered with industry-leading brands like [ExistingBrands], helping them expand their reach and significantly grow their sales.\n\nWe're currently looking to invest heavily into this category, with hundreds of thousands of dollars allocated toward premium, high-quality brands, and [Brand] stands out as a top contender. We're particularly interested in [ProductName] and are excited about the potential to build a long-term partnership that brings strong value to both sides.\n\nCould you please provide more details on your wholesale pricing, distribution terms, and any minimum order requirements?\n\nLooking forward to your response."
+  },
+  {
+    "id": "initial_outreach_art_office_2",
+    "name": "ART & OFFICE — Business Order Inquiry (Florida Distributor Expanding into Arts & Crafts)",
+    "tags": ["initial_outreach", "art", "arts_crafts", "office_supplies", "florida", "full_line", "business_order_inquiry"],
+    "intents": [
+      "florida distributor expanding into arts and crafts",
+      "business order inquiry arts crafts subject line",
+      "ask for distribution policies and wholesale pricing for art product",
+      "full line distributor arts crafts office category",
+      "tools home improvement patio sports expanding into arts"
+    ],
+    "description": "First outreach from a Florida-based full-line distributor expanding into Arts & Crafts. Covers Tools & Home Improvement, Patio & Lawn and Sports & Outdoors. Asks for distribution policies and wholesale pricing for a specific product.",
+    "template": "Subject: Business Order Inquiry - [CompanyName] x [Brand]\n\nHi [Brand] Team,\n\nMy name is Aaron, and I represent [CompanyName] Distributors, a Florida-based, full-line distributor with a growing portfolio of successful partnerships across top-performing categories such as Tools & Home Improvement, Patio & Lawn and Sports & Outdoors.\n\nFollowing consistent growth in these verticals, we are now expanding into the Art & Crafts categories and are already working with major brands like [ExistingBrands]. As we strategically select high-demand, reputable brands to introduce to our network, we believe [Brand] would be an excellent fit for our portfolio.\n\nWe're looking forward to explore how we can bring your brand to new audiences through our established distribution channels. To initiate this conversation, we'd appreciate it if you could share your distribution policies and wholesale pricing for the following item:\n[ProductName]\n\nWe are fully committed to representing our partner brands with integrity, professionalism, and strategic execution, and would love the chance to do the same for [Brand].\n\nLooking forward to your response.\n\nBest regards,"
+  },
+  {
+    "id": "initial_outreach_art_office_3",
+    "name": "ART & OFFICE — Partnership Inquiry (Toys Games Tools Sports Arts Crafts, Sales Manager)",
+    "tags": ["initial_outreach", "art", "arts_crafts", "office_supplies", "toys", "games", "tools", "sports", "partnership_inquiry", "sales_manager"],
+    "intents": [
+      "outreach covering toys games tools sports office arts crafts",
+      "sales manager multi category partnership inquiry",
+      "hundreds of thousands allocated multi category art office",
+      "ask for wholesale pricing distribution terms moq multi category",
+      "wide category coverage outreach arts office toys"
+    ],
+    "description": "Partnership inquiry covering Toys & Games, Tools & Home Improvement, Sports & Outdoors, Office Supplies, and Arts & Craft from a Sales Manager, mentioning heavy investment and the brand as a top contender.",
+    "template": "Subject: Partnership Inquiry - [Brand] x [CompanyName] Distributors\n\nHi [Brand] Team,\n\nI hope you're doing well!\n\nMy name is Aaron, and I'm the Sales Manager at [CompanyName] Distributors. We specialize in the Toys & Games, Tools & Home Improvement, Sports & Outdoors, Office Supplies, and Arts & Craft category and have successfully partnered with industry-leading brands like [ExistingBrands], helping them expand their reach and significantly grow their sales.\n\nWe're currently looking to invest heavily into this category, with hundreds of thousands of dollars allocated toward premium, high-quality brands, and [Brand] stands out as a top contender. We're particularly interested in [ProductName] and are excited about the potential to build a long-term partnership that brings strong value to both sides.\n\nCould you please provide more details on your wholesale pricing, distribution terms, and any minimum order requirements?\n\nLooking forward to your response."
+  },
+  {
+    "id": "initial_outreach_art_office_4",
+    "name": "ART & OFFICE — Business Order Inquiry (Experiment, Short & Concise)",
+    "tags": ["initial_outreach", "art", "arts_crafts", "office_supplies", "tools", "sports", "short", "experiment"],
+    "intents": [
+      "short concise arts crafts office outreach",
+      "experiment version arts crafts business order inquiry",
+      "florida distributor expanding into arts crafts short version",
+      "brief outreach arts crafts portfolio expansion",
+      "concise distributor introduction arts and crafts"
+    ],
+    "description": "Short, concise experiment version of first outreach to an arts & crafts brand from a Florida-based full-line distributor. Covers Tools & Home Improvement, Office Supplies, and Sports & Outdoors.",
+    "template": "Subject: Business Order Inquiry - [CompanyName] x [Brand]\n\nHi [Brand] Team,\n\nMy name is Aaron from [CompanyName] Distributors, a Florida-based, full-line distributor with a strong presence in Tools & Home Improvement, Office supplies, and Sports & Outdoors.\n\nFollowing consistent growth, we're now expanding into Arts & Crafts and currently work with brands like [ExistingBrands]. We believe [Brand] aligns well with our strategy and would be a valuable addition to our portfolio.\n\nWe'd love to explore a partnership and would appreciate it if you could share your distribution policies and wholesale pricing for the following item:\n[ProductName]\n\nWe're committed to representing our partner brands with professionalism, integrity, and smart execution, and would be excited to do the same for [Brand].\n\nLooking forward to your response.\n\nBest regards,"
+  },
+  {
+    "id": "initial_outreach_office_experiment",
+    "name": "OFFICE SUPPLIES — Business Order Inquiry (Experiment, Short & Concise)",
+    "tags": ["initial_outreach", "office_supplies", "tools", "arts_crafts", "sports", "short", "experiment"],
+    "intents": [
+      "short concise office supplies outreach",
+      "experiment version office business order inquiry",
+      "florida distributor expanding into office products short version",
+      "brief outreach office supplies portfolio expansion",
+      "concise distributor introduction office products"
+    ],
+    "description": "Short, concise experiment version of first outreach to an office products brand from a Florida-based full-line distributor. Covers Tools & Home Improvement, Arts & Crafts, and Sports & Outdoors.",
+    "template": "Subject: Business Order Inquiry - [CompanyName] x [Brand]\n\nHi [Brand] Team,\n\nMy name is Aaron from [CompanyName] Distributors, a Florida-based, full-line distributor with a strong presence in Tools & Home Improvement, Arts & Crafts, Office supplies, and Sports & Outdoors.\n\nFollowing consistent growth, we're now expanding into Office Products and currently work with brands like [ExistingBrands]. We believe [Brand] aligns well with our strategy and would be a valuable addition to our portfolio.\n\nWe'd love to explore a partnership and would appreciate it if you could share your distribution policies and wholesale pricing for the following item:\n[ProductName]\n\nWe're committed to representing our partner brands with professionalism, integrity, and smart execution, and would be excited to do the same for [Brand].\n\nLooking forward to your response.\n\nBest regards,"
+  },
+  {
+    "id": "initial_outreach_kitchen_home_1",
+    "name": "KITCHEN & HOME — Partnership Inquiry (Heavy Investment, Sales Manager)",
+    "tags": ["initial_outreach", "kitchen", "home_improvement", "tools", "partnership_inquiry", "heavy_investment", "sales_manager"],
+    "intents": [
+      "partnership inquiry to kitchen or home improvement brand",
+      "sales manager kitchen tools home improvement outreach",
+      "hundreds of thousands allocated for kitchen home brands",
+      "top contender kitchen home brand",
+      "ask for wholesale pricing distribution terms moq kitchen home"
+    ],
+    "description": "Partnership inquiry to a kitchen or home improvement brand from a Sales Manager specializing in Kitchen, Tools & Home Improvement. Mentions hundreds of thousands allocated toward premium brands and the brand as a top contender.",
+    "template": "Subject: Partnership Inquiry - [Brand] x [CompanyName] Distributors\n\nHi [Brand] Team,\n\nI hope you're doing well!\n\nMy name is Aaron, and I'm the Sales Manager at [CompanyName] Distributors. We specialize in the Kitchen, Tools & Home Improvement category and have successfully partnered with industry-leading brands like [ExistingBrands], helping them expand their reach and significantly grow their sales.\n\nWe're currently looking to invest heavily into this category, with hundreds of thousands of dollars allocated toward premium, high-quality brands, and [Brand] stands out as a top contender. We're particularly interested in [ProductName] and are excited about the potential to build a long-term partnership that brings strong value to both sides.\n\nCould you please provide more details on your wholesale pricing, distribution terms, and any minimum order requirements?\n\nLooking forward to your response."
+  },
+  {
+    "id": "initial_outreach_kitchen_home_2",
+    "name": "KITCHEN & HOME — Business Order Inquiry (Home Improvement Kitchen Office Health, Florida)",
+    "tags": ["initial_outreach", "kitchen", "home_improvement", "office_supplies", "health_household", "florida", "full_line", "business_order_inquiry"],
+    "intents": [
+      "florida distributor business order inquiry home improvement kitchen",
+      "home improvement kitchen office health household outreach",
+      "ask for distributor or wholesale pricing for kitchen home product",
+      "full line distributor home improvement kitchen health",
+      "florida distributor panasonic chefcraft honeycandoo 3m brands"
+    ],
+    "description": "First outreach from a Florida-based full-line distributor covering Home Improvement & Kitchen, Tools & Office Supplies and Health & Household. Asks for distributor or wholesale pricing on a specific product.",
+    "template": "Subject: Business Order Inquiry - [CompanyName] x [Brand]\n\nHi [Brand] Team,\n\nMy name is Aaron, and I represent [CompanyName] Distributors, a Florida-based, full-line distributor with a growing portfolio of successful partnerships across top-performing categories such as Home Improvement & Kitchen, Tools & Office Supplies and Health & Household.\n\nWe are already working with brands like [ExistingBrands] and many more. As we strategically select high-demand, reputable brands to introduce to our network, we believe [Brand] would be an excellent fit for our portfolio.\n\nWe're looking forward to explore how we can bring your brand to new audiences through our established distribution channels. To initiate this conversation, we'd appreciate it if you could share your distributor or wholesale pricing for the following item:\n[ProductName]\n\nWe are fully committed to representing our partner brands with integrity, professionalism, and strategic execution, and would love the chance to do the same for [Brand].\n\nLooking forward to your response."
+  },
+  {
+    "id": "initial_outreach_kitchen_home_3",
+    "name": "KITCHEN & HOME — Business Order Inquiry (Home Improvement Kitchen Office Arts & Crafts, Florida)",
+    "tags": ["initial_outreach", "kitchen", "home_improvement", "arts_crafts", "office_supplies", "florida", "full_line", "business_order_inquiry"],
+    "intents": [
+      "florida distributor business order inquiry home improvement arts crafts office",
+      "home improvement kitchen office arts crafts outreach",
+      "ask for distributor or wholesale pricing for kitchen home arts product",
+      "full line distributor home improvement kitchen arts crafts",
+      "florida distributor chefcraft honeycandoo kittrich brands"
+    ],
+    "description": "First outreach from a Florida-based full-line distributor covering Home Improvement & Kitchen, Tools & Office Supplies and Arts & Crafts. Asks for distributor or wholesale pricing on a specific product.",
+    "template": "Subject: Business Order Inquiry - [CompanyName] x [Brand]\n\nHi [Brand] Team,\n\nMy name is Aaron, and I represent [CompanyName] Distributors, a Florida-based, full-line distributor with a growing portfolio of successful partnerships across top-performing categories such as Home Improvement & Kitchen, Tools & Office Supplies and Arts & Crafts.\n\nWe are already working with brands like [ExistingBrands] and many more. As we strategically select high-demand, reputable brands to introduce to our network, we believe [Brand] would be an excellent fit for our portfolio.\n\nWe're looking forward to explore how we can bring your brand to new audiences through our established distribution channels. To initiate this conversation, we'd appreciate it if you could share your distributor or wholesale pricing for the following item:\n[ProductName]\n\nWe are fully committed to representing our partner brands with integrity, professionalism, and strategic execution, and would love the chance to do the same for [Brand].\n\nLooking forward to your response.\n\nBest regards,"
+  },
+  {
+    "id": "initial_outreach_kitchen_home_4",
+    "name": "KITCHEN & HOME — Partnership Inquiry Q3 (Garden Tools Home Improvement, Quarterly Strategy)",
+    "tags": ["initial_outreach", "kitchen", "home_improvement", "garden", "tools", "q3", "quarterly", "partnership_inquiry", "sales_manager"],
+    "intents": [
+      "q3 procurement strategy outreach",
+      "quarterly partnership inquiry kitchen home improvement",
+      "finalize q3 procurement strategy mention",
+      "sales manager garden tools home improvement q3",
+      "ask for wholesale pricing for q3 strategy"
+    ],
+    "description": "Partnership inquiry referencing Q3 procurement strategy to a garden, tools or home improvement brand from a Sales Manager. Mentions hundreds of thousands allocated and asks for wholesale pricing, distribution terms, and MOQ.",
+    "template": "Subject: Partnership Inquiry Q3 – [Brand] x [CompanyName] Distributors\n\nHi [Brand] Team,\n\nI hope you're doing well!\n\nMy name is Aaron, and I'm the Sales Manager at [CompanyName] Distributors. We specialize in the Garden, Tools & Home Improvement category and have successfully partnered with industry-leading brands like [ExistingBrands]—helping them expand their reach and significantly grow their sales.\n\nAs we finalize our Q3 procurement strategy, we're allocating hundreds of thousands of dollars toward premium, high-quality brands, and [Brand] stands out as a top contender. We're particularly interested in [ProductName] and excited about the potential to build a long-term partnership that delivers strong value on both sides.\n\nCould you please share your wholesale pricing, distribution terms, and any minimum order requirements?\n\nLooking forward to your response.\n\nBest regards,"
+  },
+  {
+    "id": "initial_outreach_tools_home_1",
+    "name": "TOOLS & HOME IMPROVEMENT — Short Outreach (Trusted Distributor, $200K)",
+    "tags": ["initial_outreach", "tools", "home_improvement", "kitchen", "short", "200k"],
+    "intents": [
+      "short first email to a tools or home improvement brand",
+      "tools home improvement trusted distributor introduction",
+      "ask for pricing and distribution policies for tools product",
+      "mention 500 unit initial order 200k potential tools",
+      "concise tools home improvement outreach"
+    ],
+    "description": "Short first outreach to a tools or home improvement brand from a trusted distributor mentioning 500+ unit initial order with $200K potential.",
+    "template": "Subject: Wholesale Inquiry for Purchase of $200K\n\nHi [Brand] Team,\n\nI hope you're doing well.\n\nI'm Aaron from [CompanyName] Distributor LLC, a trusted distributor in Tools & Home Improvement. We've successfully partnered with brands like [ExistingBrands] to expand their reach and boost sales.\n\nWe see a strong market demand for [Brand] and would love the opportunity to collaborate. We're prepared to place an initial order of 500+ units of [ProductName], with potential orders exceeding $200K in the coming months.\n\nCould you share details on your pricing and distribution policies?\n\nLooking forward to working together."
+  },
+  {
+    "id": "initial_outreach_tools_home_2",
+    "name": "TOOLS & HOME IMPROVEMENT — Detailed Outreach (Sales Manager, Long-Term Partnership)",
+    "tags": ["initial_outreach", "tools", "home_improvement", "kitchen", "detailed", "sales_manager", "200k"],
+    "intents": [
+      "detailed first email to a tools or home improvement brand",
+      "sales manager tools home improvement introduction",
+      "expanding product offering in tools home improvement category",
+      "ask for wholesale pricing distribution policies tools home",
+      "long term partnership tools home improvement"
+    ],
+    "description": "Detailed first outreach to a tools or home improvement brand from a Sales Manager mentioning 500+ unit initial order with $200K projected orders and long-term partnership intent.",
+    "template": "Subject: Wholesale Inquiry for Purchase of $200K\n\nHi [Brand] Team,\n\nI hope you're having a great day.\n\nI am Aaron, Sales Manager at [CompanyName] Distributor LLC, we specialize in growing premium brands in the Tools & Home Improvement. We've partnered with [ExistingBrands], helping them drive sales and expand their market reach.\n\nWe are looking forward to expanding our product offering in this category and we believe [Brand] has huge potential, and we're eager to contribute to its growth. We're ready to place an initial order of 500+ units of [ProductName], with projected orders exceeding $200K in the near future.\n\nCould you provide details on your wholesale pricing and distribution policies? We'd love to discuss how we can build a long-term partnership.\n\nLooking forward to your response."
+  },
+  {
+    "id": "initial_outreach_tools_home_3",
+    "name": "TOOLS & HOME IMPROVEMENT — Leading Distributor (MOQ Ask, Scaling to $200K+)",
+    "tags": ["initial_outreach", "tools", "home_improvement", "kitchen", "moq", "scaling", "200k"],
+    "intents": [
+      "introduce as leading distributor in tools home improvement",
+      "mention scaling to 200k orders tools home improvement",
+      "ask for wholesale pricing distribution terms moq tools",
+      "growing brand market share tools home improvement",
+      "tools home improvement outreach mentioning moq and scaling"
+    ],
+    "description": "First outreach to a tools or home improvement brand positioning as a leading distributor, mentions scaling to $200K+ and asks for pricing, distribution terms, and MOQ.",
+    "template": "Subject: Wholesale Inquiry for Purchase of $200K\n\nHi [Brand] Team,\n\nI'm Aaron from [CompanyName] Distributor LLC, a leading distributor in the Tools & Home Improvement space. We've helped brands like [ExistingBrands] significantly grow their market share, and we see incredible potential for [Brand] as well.\n\nWe are interested in establishing a long-term relationship and are prepared to place an initial order of 500+ units of [ProductName], scaling up to $200K+ in orders in the coming months.\n\nCould you share details on your wholesale pricing, distribution terms, and any minimum order requirements? We'd love to explore how we can work together.\n\nLooking forward to hearing from you."
+  },
+  {
+    "id": "initial_outreach_tools_home_4",
+    "name": "TOOLS & HOME IMPROVEMENT — $200K Partnership Opportunity (Sales Manager)",
+    "tags": ["initial_outreach", "tools", "home_improvement", "kitchen", "partnership_opportunity", "sales_manager", "200k"],
+    "intents": [
+      "200k partnership opportunity tools home improvement",
+      "sales manager tools home improvement sector introduction",
+      "bring tools home improvement products to broader audience",
+      "ask for wholesale pricing distribution terms moq tools home",
+      "excited about tools brand potential"
+    ],
+    "description": "First outreach with $200K Partnership Opportunity subject to a tools or home improvement brand from a Sales Manager asking for pricing, terms, and MOQ.",
+    "template": "Subject: $200K Partnership Opportunity Inquiry\n\nHi [Brand] Team,\n\nI hope you're doing well!\n\nMy name is Aaron, and I'm the Sales Manager at [CompanyName] Distributor LLC. We specialize in the Tools & Home Improvement sector and have successfully partnered with industry-leading brands like [ExistingBrands], helping them expand their market presence and increase sales.\n\nWe believe [Brand] has great potential, and we're excited about the opportunity to help bring your products to a broader audience. We're ready to place an initial order of 500+ units of [ProductName], with future orders that could exceed $200K in the near future.\n\nCould you please provide more details on your wholesale pricing, distribution terms, and any minimum order requirements? We'd love to discuss how we can build a long-term and mutually beneficial partnership.\n\nLooking forward to your response."
+  },
+  {
+    "id": "initial_outreach_tools_home_5",
+    "name": "TOOLS & HOME IMPROVEMENT — Business Order Inquiry (Florida Distributor, Full-Line)",
+    "tags": ["initial_outreach", "tools", "home_improvement", "kitchen", "florida", "full_line", "business_order_inquiry"],
+    "intents": [
+      "florida full line distributor tools home improvement business order inquiry",
+      "home improvement kitchen tools office health outreach florida",
+      "ask for distribution policies and wholesale pricing for tools home product",
+      "introducing company as distributor for tools brand",
+      "panasonic chefcraft honeycandoo kittrich existing brand mention"
+    ],
+    "description": "First outreach from a Florida-based full-line distributor in Home Improvement & Kitchen, Tools & Office Supplies and Health & Household categories. Asks for distributor or wholesale pricing on a specific product.",
+    "template": "Subject: Business Order Inquiry - [CompanyName] x [Brand]\n\nHi [Brand] Team,\n\nMy name is Aaron, and I represent [CompanyName] Distributors, a Florida-based, full-line distributor with a growing portfolio of successful partnerships across top-performing categories such as Home Improvement & Kitchen, Tools & Office Supplies and Health & Household.\n\nWe are already working with brands like [ExistingBrands] and many more. As we strategically select high-demand, reputable brands to introduce to our network, we believe [Brand] would be an excellent fit for our portfolio.\n\nWe're looking forward to explore how we can bring your brand to new audiences through our established distribution channels. To initiate this conversation, we'd appreciate it if you could share your distributor or wholesale pricing for the following item:\n[ProductName]\n\nWe are fully committed to representing our partner brands with integrity, professionalism, and strategic execution, and would love the chance to do the same for [Brand].\n\nLooking forward to your response.\n\nBest regards,"
+  },
+  {
+    "id": "initial_outreach_automotive_1",
+    "name": "AUTOMOTIVE & TOOLS — Short Outreach (Trusted Distributor, $100K)",
+    "tags": ["initial_outreach", "automotive", "tools", "industrial", "short", "100k"],
+    "intents": [
+      "short first email to an automotive or tools brand",
+      "automotive tools trusted distributor introduction",
+      "ask for pricing and distribution policies for automotive product",
+      "mention 500 unit initial order with 100k potential",
+      "concise automotive tools outreach"
+    ],
+    "description": "Short first outreach to an automotive or tools brand from a trusted distributor mentioning 500+ unit initial order with $100K potential.",
+    "template": "Subject: Wholesale Inquiry for Purchase of $500K\n\nHi [Brand] Team,\n\nI hope you're doing well.\n\nI'm Aaron from [CompanyName] Distributor LLC, a trusted distributor in Tools & Automotive. We've successfully partnered with brands like [ExistingBrands] to expand their reach and boost sales.\n\nWe see a strong market demand for [Brand] and would love the opportunity to collaborate. We're prepared to place an initial order of 500+ units of [ProductName], with potential orders exceeding $100K in the coming months.\n\nCould you share details on your pricing and distribution policies?\n\nLooking forward to working together."
+  },
+  {
+    "id": "initial_outreach_automotive_2",
+    "name": "AUTOMOTIVE & TOOLS — Detailed Outreach (Sales Manager, Long-Term Partnership)",
+    "tags": ["initial_outreach", "automotive", "tools", "industrial", "detailed", "sales_manager", "100k"],
+    "intents": [
+      "detailed first email to an automotive or tools brand",
+      "sales manager automotive tools introduction",
+      "expanding product offering in automotive tools category",
+      "ask for wholesale pricing distribution policies automotive",
+      "long term partnership automotive tools"
+    ],
+    "description": "Detailed first outreach to an automotive or tools brand from a Sales Manager mentioning 500+ unit initial order with $100K projected orders and long-term partnership intent.",
+    "template": "Hi [Brand] Team,\n\nI hope you're having a great day.\n\nI am Aaron, Sales Manager at [CompanyName] Distributor LLC, we specialize in growing premium brands in the Tools & Automotive sector. We've partnered with [ExistingBrands], helping them drive sales and expand their market reach.\n\nWe are looking forward to expanding our product offering in this category and we believe [Brand] has huge potential, and we're eager to contribute to its growth. We're ready to place an initial order of 500+ units of [ProductName], with projected orders exceeding $100K in the near future.\n\nCould you provide details on your wholesale pricing and distribution policies? We'd love to discuss how we can build a long-term partnership.\n\nLooking forward to your response."
+  },
+  {
+    "id": "initial_outreach_automotive_3",
+    "name": "AUTOMOTIVE & TOOLS — Leading Distributor (MOQ Ask, Scaling to $100K+)",
+    "tags": ["initial_outreach", "automotive", "tools", "industrial", "moq", "scaling", "100k"],
+    "intents": [
+      "introduce as leading distributor in tools automotive",
+      "mention scaling to 100k orders automotive tools",
+      "ask for wholesale pricing distribution terms moq automotive",
+      "growing brand market share automotive tools",
+      "automotive tools outreach mentioning moq and scaling"
+    ],
+    "description": "First outreach to an automotive or tools brand positioning as a leading distributor, mentions scaling to $100K+ and asks for pricing, distribution terms, and MOQ.",
+    "template": "Hi [Brand] Team,\n\nI'm Aaron from [CompanyName] Distributor LLC, a leading distributor in the Tools & Automotive sector. We've helped brands like [ExistingBrands] significantly grow their market share, and we see incredible potential for [Brand] as well.\n\nWe are interested in establishing a long-term relationship and are prepared to place an initial order of 500+ units of [ProductName], scaling up to $100K+ in orders in the coming months.\n\nCould you share details on your wholesale pricing, distribution terms, and any minimum order requirements? We'd love to explore how we can work together.\n\nLooking forward to hearing from you."
+  },
+  {
+    "id": "initial_outreach_automotive_4",
+    "name": "AUTOMOTIVE & TOOLS — Partnership Inquiry (Heavy Investment, Sales Manager)",
+    "tags": ["initial_outreach", "automotive", "tools", "partnership_inquiry", "heavy_investment", "sales_manager"],
+    "intents": [
+      "partnership inquiry to automotive or tools brand",
+      "sales manager automotive tools category outreach",
+      "hundreds of thousands allocated for automotive tools brands",
+      "top contender automotive tools brand",
+      "ask for wholesale pricing distribution terms moq for automotive"
+    ],
+    "description": "Partnership inquiry to an automotive or tools brand from a Sales Manager specializing in Automotive & Tools. Mentions hundreds of thousands allocated toward premium brands and brand as a top contender. Asks for wholesale pricing, distribution terms, and MOQ.",
+    "template": "Subject: Partnership Inquiry - [Brand] x [CompanyName] Distributors\n\nHi [Brand] Team,\n\nI hope you're doing well!\n\nMy name is Aaron, and I'm the Sales Manager at [CompanyName] Distributors. We specialize in the Automotive & Tools category and have successfully partnered with industry-leading brands like [ExistingBrands], helping them expand their reach and significantly grow their sales.\n\nWe're currently looking to invest heavily into this category, with hundreds of thousands of dollars allocated toward premium, high-quality brands, and [Brand] stands out as a top contender. We're particularly interested in [ProductName] and are excited about the potential to build a long-term partnership that brings strong value to both sides.\n\nCould you please provide more details on your wholesale pricing, distribution terms, and any minimum order requirements?\n\nLooking forward to your response."
+  },
+  {
+    "id": "initial_outreach_automotive_5",
+    "name": "AUTOMOTIVE — Business Order Inquiry (Florida Distributor Expanding into Automotive)",
+    "tags": ["initial_outreach", "automotive", "tools", "florida", "full_line", "business_order_inquiry"],
+    "intents": [
+      "florida distributor expanding into automotive and tools",
+      "business order inquiry automotive subject line",
+      "ask for distribution policies and wholesale pricing for automotive product",
+      "full line distributor automotive tools category",
+      "tools home improvement patio sports expanding into automotive"
+    ],
+    "description": "First outreach from a Florida-based full-line distributor expanding into Automotive & Tools. Covers Tools & Home Improvement, Patio & Lawn and Sports & Outdoors. Asks for distribution policies and wholesale pricing for a specific product.",
+    "template": "Subject: Business Order Inquiry - [CompanyName] x [Brand]\n\nHi [Brand] Team,\n\nMy name is Aaron, and I represent [CompanyName] Distributors, a Florida-based, full-line distributor with a growing portfolio of successful partnerships across top-performing categories such as Tools & Home Improvement, Patio & Lawn and Sports & Outdoors.\n\nFollowing consistent growth in these verticals, we are now expanding into the Automotive & Tools categories and are already working with major brands like [ExistingBrands] etc. As we strategically select high-demand, reputable brands to introduce to our network, we believe [Brand] would be an excellent fit for our portfolio.\n\nWe're looking forward to explore how we can bring your brand to new audiences through our established distribution channels. To initiate this conversation, we'd appreciate it if you could share your distribution policies and wholesale pricing for the following item:\n[ProductName]\n\nWe are fully committed to representing our partner brands with integrity, professionalism, and strategic execution, and would love the chance to do the same for [Brand].\n\nLooking forward to your response.\n\nBest regards,"
+  },
+  {
+    "id": "initial_outreach_industrial_1",
+    "name": "INDUSTRIAL — Partnership Inquiry (Heavy Investment, Sales Manager)",
+    "tags": ["initial_outreach", "industrial", "tools", "automotive", "partnership_inquiry", "heavy_investment", "sales_manager"],
+    "intents": [
+      "partnership inquiry to industrial brand",
+      "sales manager industrial tools automotive category outreach",
+      "hundreds of thousands allocated for industrial brands",
+      "top contender industrial brand",
+      "ask for wholesale pricing distribution terms moq for industrial"
+    ],
+    "description": "Partnership inquiry to an industrial brand from a Sales Manager specializing in Industrial, Tools and Automotive. Mentions hundreds of thousands allocated toward premium brands and brand as a top contender. Asks for wholesale pricing, distribution terms, and MOQ.",
+    "template": "Subject: Partnership Inquiry - [Brand] x [CompanyName] Distributors\n\nHi [Brand] Team,\n\nI hope you're doing well!\n\nMy name is Aaron, and I'm the Sales Manager at [CompanyName] Distributors. We specialize in the Industrial, Tools and Automotive Categories and have successfully partnered with industry-leading brands like [ExistingBrands], helping them expand their reach and significantly grow their sales.\n\nWe're currently looking to invest heavily into this category, with hundreds of thousands of dollars allocated toward premium, high-quality brands, and [Brand] stands out as a top contender. We're particularly interested in [ProductName] and are excited about the potential to build a long-term partnership that brings strong value to both sides.\n\nCould you please provide more details on your wholesale pricing, distribution terms, and any minimum order requirements?\n\nLooking forward to your response."
+  },
+  {
+    "id": "initial_outreach_industrial_2",
+    "name": "INDUSTRIAL — Business Order Inquiry (Florida Distributor Expanding into Industrial)",
+    "tags": ["initial_outreach", "industrial", "tools", "florida", "full_line", "business_order_inquiry"],
+    "intents": [
+      "florida distributor expanding into industrial and tools",
+      "business order inquiry industrial subject line",
+      "ask for distribution policies and wholesale pricing for industrial product",
+      "full line distributor industrial tools category",
+      "tools home improvement patio sports expanding into industrial"
+    ],
+    "description": "First outreach from a Florida-based full-line distributor expanding into Industrial & Tools. Covers Tools & Home Improvement, Patio & Lawn and Sports & Outdoors. Asks for distribution policies and wholesale pricing for a specific product.",
+    "template": "Subject: Business Order Inquiry - [CompanyName] x [Brand]\n\nHi [Brand] Team,\n\nMy name is Aaron, and I represent [CompanyName] Distributors, a Florida-based, full-line distributor with a growing portfolio of successful partnerships across top-performing categories such as Tools & Home Improvement, Patio & Lawn and Sports & Outdoors.\n\nFollowing consistent growth in these verticals, we are now expanding into the Industrial & Tools categories and are already working with major brands like [ExistingBrands] etc. As we strategically select high-demand, reputable brands to introduce to our network, we believe [Brand] would be an excellent fit for our portfolio.\n\nWe're looking forward to explore how we can bring your brand to new audiences through our established distribution channels. To initiate this conversation, we'd appreciate it if you could share your distribution policies and wholesale pricing for the following item:\n[ProductName]\n\nWe are fully committed to representing our partner brands with integrity, professionalism, and strategic execution, and would love the chance to do the same for [Brand].\n\nLooking forward to your response.\n\nBest regards,"
+  },
+  {
+    "id": "special_counter_new_year",
+    "name": "SPECIAL COUNTER — New Year Re-engagement (Amazon Reseller, $300K)",
+    "tags": ["counter", "special", "new_year", "amazon", "reseller", "re_engagement", "300k", "multichannel"],
+    "intents": [
+      "new year re-engagement email",
+      "brand previously rejected amazon resellers",
+      "re-engage brand that declined amazon sellers",
+      "express continued interest after rejection",
+      "multichannel distributor 300k order potential new year"
+    ],
+    "description": "Special counter email for a brand that previously declined Amazon resellers. Sent at the start of the year to re-engage, emphasizing multichannel approach (65% Amazon, 25% brick-and-mortar, 10% eCommerce), 600+ brands managed, and $300K order potential.",
+    "template": "Hi,\n\nHappy New Year and hope you are doing well.\n\nAs we begin the new year, we would like to express our continued interest in becoming an authorized reseller for [Brand]. We admire the quality and reputation of your brand, and we're confident that a partnership with us could help drive significant growth and visibility for your products.\n\nWhile we understand that Amazon resellers were not being accepted previously, we're hopeful that 2025 presents a fresh opportunity for collaboration. We've made significant strides in expanding our reach, and we're more committed than ever to forming partnerships that deliver results.\n\nWe'd love the chance to sell your products across multiple channels, with Amazon accounting for 65% of our sales. The remaining 35% is split between our brick-and-mortar store and eCommerce site. This multichannel approach ensures consistent growth, protection of your listings, and maximum brand visibility.\n\nWith the potential to place immediate orders up to $300K in this category, we're eager to discuss how we can move forward with you as part of our product offerings. We currently manage over 600 brands, some examples like [ExistingBrands], showcasing our ability to handle significant partnerships while maintaining brand integrity. With our strong purchasing power, we are able to place large orders and consistently make upfront payments prior to shipment.\n\nWe would be thrilled to explore how we can work together. Please let us know when would be a convenient time to connect for a call or meeting to discuss how we can collaborate.\n\nWe look forward to the possibility of working together and contributing to the continued success of [Brand].\n\nLet's make something great happen!"
+  },
+  {
+    "id": "special_counter_amazon_reseller_alt",
+    "name": "SPECIAL COUNTER — Amazon Reseller Re-engagement (Personalized, Multichannel)",
+    "tags": ["counter", "special", "amazon", "reseller", "re_engagement", "300k", "multichannel", "personalized"],
+    "intents": [
+      "personalized re-engagement email after amazon rejection",
+      "revisit amazon reseller conversation",
+      "multichannel distributor re-engagement personalized",
+      "reconnect with brand that declined amazon sellers",
+      "300k order potential multichannel follow up after rejection"
+    ],
+    "description": "Personalized counter email for a brand that previously declined Amazon resellers. Emphasizes multichannel strategy (brick-and-mortar, eCommerce, online marketplaces), 600+ brands managed, $300K order potential, MAP enforcement, and asks for a call. Requires contact name and brand name.",
+    "template": "Hi [Name],\n\nI hope you've been doing well. As we move forward, I wanted to reconnect and express our continued interest in partnering with [Brand].\n\nWe truly admire the quality and reputation of your brand, and we believe there's an opportunity for us to work together in a way that aligns with your distribution strategy. While we understand your previous stance on Amazon resellers, we would love the opportunity to revisit this conversation and explore how we can collaborate across multiple channels.\n\nAs a multichannel distributor, we sell across brick-and-mortar retail, our own eCommerce store, and select online marketplaces, ensuring a balanced and controlled approach to distribution. We've worked with over 600 brands and have a strong purchasing capacity, with the ability to place immediate orders up to $300K in this category. Our dedicated MAP enforcement, customer support, and marketing teams ensure that every brand we work with maintains its integrity and market positioning.\n\nWe would love to schedule a time to discuss how we can align with your distribution policies and find a partnership model that works for both sides. Let me know when would be a convenient time for a quick call.\n\nLooking forward to hearing your thoughts."
+  },
+  {
+    "id": "special_counter_detailed_pitch",
+    "name": "SPECIAL COUNTER — Detailed Sales Strategy Pitch (After Call, Management Review)",
+    "tags": ["counter", "special", "detailed_pitch", "after_call", "amazon", "multichannel", "management_review", "300k"],
+    "intents": [
+      "detailed pitch after a call requesting more info",
+      "share sales strategy after speaking with contact",
+      "management review follow up with detailed breakdown",
+      "explain amazon strategy brick and mortar ecommerce breakdown",
+      "justify 300k order potential with detailed channel breakdown"
+    ],
+    "description": "Detailed follow-up email sent after a call where the contact asked for more information for management review. Covers sales channel breakdown (Amazon 65%, brick-and-mortar 25%, eCommerce 10%), MAP compliance, 600+ brand portfolio, $300K initial order, and quarterly $1M reorder potential. Requires contact name.",
+    "template": "Hi [Name],\n\nI appreciate your time on our call and your willingness to take this discussion to your management. As requested, here's a detailed breakdown of our sales strategy, the value we bring, and why working with us can be a significant opportunity for your brand.\n\nOur Sales Channels & Multichannel Strategy:\n\nWe operate a high-volume, multi-channel distribution model designed to drive brand growth while maintaining pricing integrity. Our sales breakdown is as follows:\n- Amazon (65%) – This remains a key platform for us due to its extensive customer base, robust advertising capabilities, and global reach. We use a highly controlled approach, ensuring brand integrity, adherence to MAP policies, and preventing unauthorized resellers from damaging the brand's value.\n- Brick-and-Mortar Stores (25%) – We have partnerships with over 250+ retail locations nationwide, placing your products directly in front of in-store customers.\n- E-Commerce Website (10%) – Our online store caters to a loyal customer base, contributing to steady demand and controlled brand representation.\n\nThis diversified model ensures that we don't rely on just one channel, making our distribution sustainable and data-driven for maximum efficiency.\n\nWhy Amazon is a Key Driver:\n\nWe understand concerns about third-party sellers on Amazon, but our controlled and strategic approach ensures that brands retain their premium status:\n- MAP Compliance & Brand Protection – We strictly adhere to MAP policies, ensuring price stability and brand positioning.\n- Marketing Investment – We allocate a handsome amount of budget in advertising spend, driving targeted traffic to listings through sponsored ads, SEO, and enhanced brand content.\n- Unauthorized Seller Control – We help brands combat gray-market sellers, protecting margins and preventing pricing disruptions.\n- Advanced Analytics & Demand Forecasting – We use real-time data to optimize sales velocity, ensuring efficient inventory turnover.\n\nThe Kind of Business We Can Provide:\n\n- Upfront Payments & Large Orders – We are ready to place initial orders up to $300K, fully paid before shipment.\n- Consistent Reordering – Our top-performing brands receive quarterly orders exceeding $1M, ensuring steady growth.\n- Strong Logistics & Fulfillment – Our distribution network moves over 500,000+ units monthly, ensuring fast sell-through rates and minimal warehousing risk.\n- Scalable Partnership – We expand brand presence while keeping tight control over distribution, ensuring sustainable and profitable growth.\n\nBrands We Work With:\n\nWe currently manage over 600+ brands, including Logitech, Danner, Leapers, Sierra Natural Science, and Starwest Botanicals. These partnerships showcase our ability to handle premium brands with precision, compliance, and strong sales performance.\n\nNext Steps:\n\nI'd love to continue this discussion and explore how we can create a high-value collaboration that benefits your brand. Let me know what additional details your management may need, and we can set up a time to discuss further.\n\nLooking forward to your thoughts!"
+  },
+  {
+    "id": "special_counter_goto_strategy",
+    "name": "SPECIAL COUNTER — Go-To-Market Strategy Overview ($500K Monthly)",
+    "tags": ["counter", "special", "goto_strategy", "multichannel", "amazon", "brick_mortar", "ecommerce", "500k", "map_policy"],
+    "intents": [
+      "explain go to market strategy",
+      "outline multichannel sales approach",
+      "brand asking about our sales channels",
+      "share balanced channel strategy with map compliance",
+      "500k monthly order potential overview"
+    ],
+    "description": "Counter email explaining the go-to-market strategy with a balanced multichannel approach: brick-and-mortar (35%), eCommerce (dedicated website), and online marketplaces including Amazon, with strict MAP compliance. Mentions 70,000+ customers and $500K monthly order target.",
+    "template": "I hope you are doing well.\n\nAt [CompanyName] Distributors, we use a balanced go-to-market strategy that integrates:\n\n- Brick-and-Mortar Stores: Around 35% of our sales come from physical retail locations, where customers can engage directly with products and build trust in the brand.\n- E-Commerce Platform: Our dedicated website offers convenience for customers who prefer to shop online, ensuring your products are accessible to a broader audience.\n- Online Marketplaces: We also leverage different online marketplaces such as Facebook Marketplace, Amazon, etc. to further increase brand exposure. While it is a key channel for us, we are committed to maintaining your brand's integrity by strictly adhering to Minimum Advertised Price (MAP) policies and ensuring that there are no conflicts with other sellers.\n\nWe believe that our comprehensive sales strategy will benefit your brand by expanding its reach across various channels, without disrupting your current operations. Our approach is designed to complement your existing sales strategies, helping us to reach up to $500K in monthly orders.\n\nHow We Can Help You Grow Monthly Orders:\n\n- With our buying power and established network of over 70,000 customers, we aim to boost your product visibility and drive consistent demand.\n- Our advanced marketing strategies, including targeted Google and Meta ads, are designed to bring steady traffic and conversions across all channels.\n- On Amazon, we use proven listing optimization techniques and ad campaigns that typically lead to a 20-30% increase in sales within the first three months of partnership.\n- Offline, we ensure regular restocking in stores to meet demand, building stronger connections with repeat customers.\n\nBy combining these efforts, our goal is to increase monthly orders while maintaining your brand's integrity and growth objectives.\n\nI'd love to hear your thoughts and explore how we can collaborate to create a successful partnership."
+  },
+  {
+    "id": "counter_rejection_offline_only",
+    "name": "REJECTION COUNTER — They Only Want Offline Channels",
+    "tags": ["counter", "rejection", "offline", "brick_mortar", "amazon_concern", "250_retail_partners"],
+    "intents": [
+      "brand only wants offline sales",
+      "brand rejected because of amazon",
+      "brand prefers brick and mortar only",
+      "counter to offline only preference",
+      "convince brand that prefers no online channels"
+    ],
+    "description": "Counter response when a brand says they only want offline/brick-and-mortar sales. Highlights 250+ retail partners, 35% offline sales, 150% first-year revenue increase, and willingness to prioritize offline channels.",
+    "template": "Thank you for sharing your focus on offline sales. I completely understand and want to highlight how we can be the right partner for your brand.\n\n- Strong Offline Network: We work with over 250+ retail partners across the U.S., contributing to 35% of our total sales through brick-and-mortar stores.\n- Proven Sales Success: On average, our offline partners see a 150% increase in revenue within the first year of collaboration.\n- Holistic Growth Strategy: While Amazon is crucial for our sales strategy, we can prioritize offline channels in our partnership to align with your goals.\n\nWith our wide offline network and expertise, we can help your brand reach new heights in physical stores. Let's discuss how we can make this partnership work for both of us.\n\nLooking forward to your thoughts!"
+  },
+  {
+    "id": "counter_rejection_already_on_amazon",
+    "name": "REJECTION COUNTER — They Are Already on Amazon",
+    "tags": ["counter", "rejection", "amazon", "competing_seller", "map_compliance", "brand_protection"],
+    "intents": [
+      "brand already sells on amazon themselves",
+      "brand concerned about competing sellers on amazon",
+      "counter to brand already on amazon objection",
+      "assure brand we won't compete on amazon",
+      "brand worried about amazon channel conflict"
+    ],
+    "description": "Counter response when a brand objects because they are already selling on Amazon and are concerned about competing sellers. Emphasizes MAP compliance, brand protection, and the additional reach through offline stores and eCommerce.",
+    "template": "Thank you for sharing your concerns about competing on Amazon. I completely understand, and I want to assure you that we work to enhance your existing presence rather than disrupt it.\n\nHere's what we bring to the table:\n\n- Amazon Expertise: With 60% of our sales generated on Amazon, we know how to grow brands while protecting their integrity.\n- Policy Compliance: We strictly follow MAP policies and your pricing guidelines to maintain brand consistency.\n- Additional Reach: By leveraging our offline stores (35% of sales) and e-commerce platform, we can drive new customers to your Amazon listings.\n\nOur goal is to collaborate, not compete. Together, we can grow your Amazon presence while expanding your brand's reach through other channels.\n\nLet me know if we can discuss this further. I'm happy to address any concerns!"
+  },
+  {
+    "id": "counter_rejection_work_with_distributors",
+    "name": "REJECTION COUNTER — They Tell Us to Work with Their Distributors",
+    "tags": ["counter", "rejection", "distributor", "direct_partnership", "channel_conflict", "bulk_order"],
+    "intents": [
+      "brand says to work through their existing distributors",
+      "counter to redirect to existing distributor objection",
+      "prefer direct partnership over distributor channel",
+      "brand redirected us to their distributor",
+      "convince brand to work directly instead of through distributor"
+    ],
+    "description": "Counter response when a brand redirects to their existing distributors. Argues for direct partnership benefits: faster processes, stronger brand control, and 300% growth potential within six months.",
+    "template": "Thank you for suggesting working through your distributors. While we respect your existing structure, we believe that a direct partnership can provide greater benefits for your brand.\n\n- Faster Processes: Direct communication helps us place bulk orders quicker and avoid delays.\n- Stronger Brand Control: Working directly allows us to follow your guidelines closely and promote your brand exactly as you envision.\n- Broader Reach: Our network, which spans over 250+ partners and multiple channels, helps brands achieve up to 300% growth within six months.\n\nAmazon remains a key channel for us, contributing 60% of our sales, but we combine it with offline stores and our website to create a balanced approach.\n\nI'd love to explore how we can make this work directly with your team. Let me know if we can schedule a call or meeting."
+  },
+  {
+    "id": "counter_rejection_not_signing_distributors",
+    "name": "REJECTION COUNTER — They Are Not Signing New Distributors",
+    "tags": ["counter", "rejection", "not_accepting_distributors", "brand_integrity", "150_percent_growth", "10000_customers"],
+    "intents": [
+      "brand says they are not looking for new distributors",
+      "counter to not accepting new distributors objection",
+      "brand at capacity for distributors",
+      "convince brand to accept us despite not signing new distributors",
+      "brand rejected because not looking for distribution partners"
+    ],
+    "description": "Counter response when a brand says they are not signing new distributors. Highlights 150% first-year growth, 10,000+ customers, MAP compliance, and asks for a call.",
+    "template": "Thank you for letting me know about your current plans. I completely understand, but I'd like to share why working with us can bring significant value to your brand.\n\n- Increased Sales: Our proven strategies have helped brands grow by an average of 150% in their first year with us.\n- Wide Reach: We serve over 10,000 customers through our offline network, e-commerce website, and Amazon, which generates 60% of our sales.\n- Brand Integrity: We follow strict MAP and pricing policies to ensure your brand's reputation is protected across all channels.\n\nWe're confident that partnering with us can enhance your brand's growth without disrupting your current strategies. Would you be open to a quick call to discuss this further?\n\nThank you for considering this opportunity!"
+  },
+  {
+    "id": "counter_rejection_supply_chain",
+    "name": "REJECTION COUNTER — Supply Chain Issues / Low Production",
+    "tags": ["counter", "rejection", "supply_chain", "low_production", "revisit", "rare_case"],
+    "intents": [
+      "brand has supply chain issues",
+      "brand low on production or inventory",
+      "counter to supply chain problem rejection",
+      "brand cannot fulfill orders due to capacity",
+      "revisit partnership when production stabilizes"
+    ],
+    "description": "Counter response when a brand cites supply chain issues or low production levels as the reason they cannot partner. Offers to start smaller or revisit the conversation when production stabilizes.",
+    "template": "Thank you for getting back to me and sharing the current situation. I completely understand the challenges posed by supply chain issues and low production levels.\n\nThat said, I truly believe there's a significant opportunity for us to collaborate in a way that aligns with your capacity and priorities. I'd love to explore options where we could begin on a smaller scale or discuss future possibilities when production levels stabilize.\n\nPlease let me know if we can revisit this conversation at a later time or if there's a way to structure a partnership that works for both sides.\n\nLooking forward to your thoughts."
+  },
+  {
+    "id": "counter_ask_price_list",
+    "name": "ADD-ON — Request for Catalog or Price List",
+    "tags": ["counter", "add_on", "price_list", "catalog", "procurement", "rare_case"],
+    "intents": [
+      "ask for a catalog or price list",
+      "request product catalog from brand",
+      "need price list for procurement department",
+      "ask to share catalog to review products",
+      "procurement review requires price list"
+    ],
+    "description": "Short add-on snippet to request a catalog or price list from a brand, to forward to the procurement department for review.",
+    "template": "Additionally, would it be possible for you to share a catalog or price list? This will allow us to forward the information to our procurement department for review and assist us in finalizing the products we would like to proceed with."
   }
 ]
